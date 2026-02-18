@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unstable Thoughts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(248, 248, 248, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .logo-sub {
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2.5px;
+            background-color: #1a1a1a;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -4.9px);
+        }
+
+        /* Side Menu */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 5rem 2rem;
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 999;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .side-menu.active {
+            right: 0;
+        }
+
+        .side-menu ul {
+            list-style: none;
+        }
+
+        .side-menu ul li {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+        }
+
+        .side-menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .side-menu.active ul li:nth-child(1) { transition-delay: 0.1s; }
+        .side-menu.active ul li:nth-child(2) { transition-delay: 0.2s; }
+        .side-menu.active ul li:nth-child(3) { transition-delay: 0.3s; }
+
+        .side-menu ul li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .side-menu ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .hero-title-sub {
+            font-weight: 300;
+            margin-left: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            color: #4a4a4a;
+        }
+
+        .hero-link {
+            font-size: 0.95rem;
+            color: #000000;
+            text-decoration: underline dashed;
+            text-underline-offset: 3px;
+            margin-bottom: 2.5rem;
+            display: inline-block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-link:hover {
+            opacity: 0.7;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 7px 13px;
+            background: #79a6ff;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+  
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .side-menu {
+                width: 100%;
+                right: -100%;
+            }
+
+            .featured-title {
+                font-size: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+        <span class="logo-sub"><span style="font-weight: 600;font-size: larger;">Ustable</span>Thoughts.com</span>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <br>
+            <li><a href="About-Untablethoughts-and-Author">About</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">
+           <span>Ustable</span> <span class="hero-title-sub">Thoughts</span>
+        </h1>
+        <p class="hero-description">
+            A view into Political philosophy, Indian politics, Development and social issues.
+        </p>
+        <a href="#" class="hero-link">Read about section</a>
+        <a href="#articles" class="cta-button">
+            Articles
+            <span class="arrow" style="font-size: 25px;">&#8594;</span>
+        </a>
+    </section>
+
+   
+    </section>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const navbar = document.getElementById('navbar');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            sideMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const menuLinks = document.querySelectorAll('.side-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                sideMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
