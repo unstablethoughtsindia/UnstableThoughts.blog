@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — UnstableThoughts</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(248, 248, 248, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .logo-sub {
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        /* ================= PAGE CONTENT ================= */
+        .page {
+            padding: 8rem 2rem 5rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        /* ================= SECTIONS ================= */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.3rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span class="logo-sub">
+                <span style="font-weight:600;font-size:larger;">Unstable</span>Thoughts.com
+            </span>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <main class="page">
+
+        <section class="section">
+            <h2>What is UnstableThoughts?</h2>
+            <p>
+                UnstableThoughts is an independent writing platform focused on political
+                philosophy, Indian politics, development, and social issues.
+            </p>
+            <p>
+                It values slow thinking, honest doubt, and perspectives that evolve
+                rather than remain fixed.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Why “Unstable”?</h2>
+            <p>
+                Because ideas should never become inflexible. Here, instability represents
+                intellectual honesty, openness, and continuous growth.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>About the Author</h2>
+
+            <p>Hi, I am Abin.</p>
+
+            <p>
+                On this website, I explore insights into political philosophy, Indian politics,
+                development, and social issues.
+            </p>
+
+            <p>
+                Read with an open mind and form your own understanding of the truth.
+            </p>
+
+            <p>
+                There are many things in our country that need to change in order for us to grow.
+            </p>
+
+            <p>
+                I am an Indian who wants to see India become a developed nation and a better place to live.
+            </p>
+
+            <p>
+                I assure you that the writing here is not biased toward any individual,
+                political party, or organization.
+            </p>
+
+            <p>
+                The goal is simple: to create a meaningful impact through honest and thoughtful writing.
+            </p>
+
+            <p><strong>Jai Hind</strong></p>
+        </section>
+
+        <section class="section" id="Contact">
+            <h2>Contact</h2>
+            <p>For more information, or if you'd like to be part of UnstableThoughts, feel free to reach out at
+                 <a href="mailto:unstablethoughtsindia@gmail.com">
+                   unstablethoughtsindia@gmail.com</a></p>
+
+        </section>
+    </main>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
+
