@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UnstableThoughts - Article Library</title>
+
+ 
+  <style>
+    :root {
+      --text: #111;
+      --bg: #ffffff;
+      --accent: #159957;
+      --light-text: #555;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      background: var(--bg);
+      color: var(--text);
+      padding-top: 60px; 
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(248, 248, 248, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo-sub {
+      font-weight: 300;
+      font-size: 0.95rem;
+    }
+
+    .logo-strong {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* ================= NEWS LIST ================= */
+    .news-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .news-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 1.5rem;
+    }
+
+    .news-title {
+      font-family: Optima, Georgia, serif;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .news-title:hover {
+      color: var(--accent);
+    }
+
+    .news-meta {
+      font-size: 0.875rem;
+      color: var(--light-text);
+    }
+
+    .news-meta span {
+      font-weight: 600;
+      color: var(--text);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <span class="logo-sub">
+        <span class="logo-strong">Unstable</span>Thoughts.com
+      </span>
+    </div>
+  </nav>
+
+  <!-- NEWS LIST -->
+  <div class="news-container">
+
+<p>coming soon (*_*)</p>
+
+
+  
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+
+</body>
+</html>
