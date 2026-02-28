@@ -3,229 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — UnstableThoughts</title>
+<title>About — UnstableThoughts.blog</title>
 
 <style>
-/* ================= RESET ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Georgia", serif;
 }
 
-/* ================= BASE ================= */
-body {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    background-color: #ffffff;
-    color: #1a1a1a;
-    overflow-x: hidden;
+body{
+    background:#f4f4f4;
+    color:#1d2b2b;
+    line-height:1.8;
 }
 
-/* ================= NAVBAR ================= */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    background-color: rgba(248, 248, 248, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: box-shadow 0.3s ease;
+/* ================= HEADER ================= */
+
+header{
+    width:100%;
+    padding:20px 8%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    transition:0.4s ease;
+
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+    border-bottom:1px solid rgba(255,255,255,0.4);
 }
 
-.navbar.scrolled {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+header.scrolled{
+    background:rgba(15,30,30,0.85);
 }
 
-.logo {
-    font-size: 1.25rem;
-    font-weight: 600;
+header.scrolled .logo{
+    color:white;
 }
 
-.logo-sub {
-    font-weight: 300;
-    font-size: 0.9rem;
+.logo{
+    font-size:18px;
+    letter-spacing:1px;
+    transition:0.3s;
 }
 
-/* ================= PAGE ================= */
-.page {
-    padding: 8rem 2rem 5rem;
-    max-width: 900px;
-    margin: auto;
+/* ================= HERO ================= */
+
+.hero{
+    padding:150px 8% 100px 8%;
+    max-width:900px;
 }
 
-.page-title {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+.hero h1{
+    font-size:52px;
+    font-weight:500;
+    margin-bottom:30px;
 }
 
-.page-subtitle {
-    font-size: 1.1rem;
-    color: #4a4a4a;
-    line-height: 1.7;
-    margin-bottom: 3rem;
+.hero p{
+    font-size:22px;
+    color:#555;
+    max-width:700px;
 }
 
-/* ================= SECTIONS ================= */
-.section {
-    margin-bottom: 4rem;
+/* ================= CONTENT ================= */
+
+.content{
+    padding:10px 8% 120px 8%;
+    max-width:900px;
 }
 
-.section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.content p{
+    font-size:20px;
+    margin-bottom:35px;
+    color:#2b3a3a;
 }
 
-.section p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 1rem;
+.content p:first-letter{
+    font-size:42px;
+    float:left;
+    line-height:1;
+    padding-right:8px;
+    font-weight:500;
 }
 
-/* ================= TEXT ANIMATION ================= */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
 
 /* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-    .page-title {
-        font-size: 2.3rem;
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:36px;
     }
 
-    .section h2 {
-        font-size: 1.6rem;
+    .hero p{
+        font-size:18px;
+    }
+
+    .content p{
+        font-size:18px;
     }
 }
+
+/* ================= IMAGE ================= */
+
+.image-section img{
+    width:100%;
+    display:block;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-    <div class="logo">
-        <span class="logo-sub">
-            <span style="font-weight:600;font-size:larger;">Unstable</span>Thoughts.blog
-        </span>
-    </div>
-</nav>
+<header id="navbar">
+    <div class="logo">UnstableThoughts.blog</div>
+</header>
 
-<!-- PAGE CONTENT -->
-<main class="page">
+<section class="hero">
+    <h2>About This Platform</h2>
+    <p>UnstableThoughts is an independent writing platform focused on political philosophy, Indian politics, development, and social issues.</p>
+    <br>
+    <p>It values slow thinking, honest doubt, and perspectives that evolve rather than remain fixed.</p>
+    <br>
+    <h3>Why “Unstable”?</h3>
+    <p>Because ideas should never become inflexible. Here, instability represents intellectual honesty, openness, and continuous growth.</p>
+<br>
+    <h3>About the Author</h3>
+    <p>Hi, I am Abin.</p>
+    <p>On this website, I explore insights into political philosophy, Indian politics, development, and social issues.</p>
+    <p>Read with an open mind and form your own understanding of the truth.</p>
+    <p>There are many things in our country that need to change in order for us to grow.</p>
+    <p>I am an Indian who wants to see India become a developed nation and a better place to live.</p>
+    <p>I assure you that the writing here is not biased toward any individual, political party, or organization.</p>
+    <p>The goal is simple: to create a meaningful impact through honest and thoughtful writing.</p>
+    <p><strong>Jai Hind</strong></p>
 
-    <section class="section">
-        <h2 class="reveal">What is UnstableThoughts?</h2>
+<br>
 
-        <p class="reveal delay-1">
-            UnstableThoughts is an independent writing platform focused on political
-            philosophy, Indian politics, development, and social issues.
-        </p>
-
-        <p class="reveal delay-2">
-            It values slow thinking, honest doubt, and perspectives that evolve
-            rather than remain fixed.
-        </p>
-            
-        <p class="reveal delay-2" style="font-weight: 900;">Why “Unstable”?</p>
-        <p class="reveal delay-2"> Because ideas should never become inflexible. Here, instability represents
-            intellectual honesty, openness, and continuous growth.</p>
-    </section>
-
-    
-    <section class="section">
-        <h2 class="reveal">About the Author</h2>
-
-        <p class="reveal delay-1">Hi, I am Abin.</p>
-
-        <p class="reveal delay-2">
-            On this website, I explore insights into political philosophy, Indian politics,
-            development, and social issues.
-        </p>
-
-        <p class="reveal delay-3">
-            Read with an open mind and form your own understanding of the truth.
-        </p>
-
-        <p class="reveal delay-1">
-            There are many things in our country that need to change in order for us to grow.
-        </p>
-
-        <p class="reveal delay-2">
-            I am an Indian who wants to see India become a developed nation and a better place to live.
-        </p>
-
-        <p class="reveal delay-3">
-            I assure you that the writing here is not biased toward any individual,
-            political party, or organization.
-        </p>
-
-        <p class="reveal delay-1">
-            The goal is simple: to create a meaningful impact through honest and thoughtful writing.
-        </p>
-
-        <p class="reveal delay-2"><strong>Jai Hind</strong></p>
-    </section>
-
-    <section class="section" id="Contact">
-        <h2 class="reveal">Contact</h2>
-
-        <p class="reveal delay-1">
+    <h3>Email</h3>
+    <p>
             For more information, or if you'd like to be part of UnstableThoughts,
             feel free to reach out at
-            <a href="mailto:unstablethoughtsindia@gmail.com">
+            <a style="color: rgba(15,30,30,0.85);" href="mailto:unstablethoughtsindia@gmail.com">
                 unstablethoughtsindia@gmail.com
             </a>
-        </p>
-    </section>
-
-</main>
+    </p>
+</section>
+<section class="image-section">
+    <img src="unstableThoughts-image2.jpg" alt="About Image">
+</section>
 
 <script>
-const navbar = document.getElementById('navbar');
-const reveals = document.querySelectorAll('.reveal');
-
-function revealOnView() {
-    const windowHeight = window.innerHeight;
-
-    reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 80) {
-            el.classList.add('active');
-        }
-    });
-}
-
-// Run on page load (IMPORTANT FIX)
-window.addEventListener('load', revealOnView);
-
-// Run on scroll
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-    revealOnView();
+window.addEventListener("scroll",function(){
+    const navbar=document.getElementById("navbar");
+    if(window.scrollY>50){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
 });
 </script>
 
-
 </body>
 </html>
-
-
-
