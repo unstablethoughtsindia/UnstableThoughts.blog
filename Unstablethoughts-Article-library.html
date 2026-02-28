@@ -1,131 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>UnstableThoughts - Article Library</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UnstableThoughts - Article Library</title>
 
- 
-  <style>
-    :root {
-      --text: #111;
-      --bg: #ffffff;
-      --accent: #159957;
-      --light-text: #555;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Georgia", serif;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body{
+    background:#f4f4f4;
+    color:#1d2b2b;
+    line-height:1.6;
+}
 
-    body {
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      background: var(--bg);
-      color: var(--text);
-      padding-top: 60px; 
-    }
+/* ================= GLASS HEADER (NO NAV, NO SOCIAL) ================= */
 
-    /* ================= NAVBAR ================= */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      background-color: rgba(248, 248, 248, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      transition: box-shadow 0.3s ease;
-    }
+header{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    transition:0.4s ease;
 
-    .navbar.scrolled {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+    border-bottom:1px solid rgba(255,255,255,0.4);
+}
 
-    .logo-sub {
-      font-weight: 300;
-      font-size: 0.95rem;
-    }
+header.scrolled{
+    background:rgba(15,30,30,0.85);
+}
 
-    .logo-strong {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
+header.scrolled .logo{
+    color:white;
+}
 
-    /* ================= NEWS LIST ================= */
-    .news-container {
-      max-width: 800px;
-      margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 0 1rem;
-    }
+.logo{
+    font-size:18px;
+    transition:0.3s;
+}
 
-    .news-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 1.5rem;
-    }
+/* ================= HERO ================= */
 
-    .news-title {
-      font-family: Optima, Georgia, serif;
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 1.4;
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
+.hero{
+    padding:100px 8% 60px 8%;
+    max-width:900px;
+}
 
-    .news-title:hover {
-      color: var(--accent);
-    }
+.hero h1{
+    font-size:48px;
+    font-weight:500;
+    max-width:800px;
+}
 
-    .news-meta {
-      font-size: 0.875rem;
-      color: var(--light-text);
-    }
+.hero p{
+    margin-top:20px;
+    font-size:20px;
+    color:#444;
+    max-width:650px;
+}
 
-    .news-meta span {
-      font-weight: 600;
-      color: var(--text);
-    }
-  </style>
+/* ================= ARTICLE LIST ================= */
+
+.news-container{
+    max-width:900px;
+    margin:40px auto 120px auto;
+    padding:0 8%;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.news-card{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding-bottom:30px;
+    border-bottom:1px solid rgba(0,0,0,0.08);
+}
+
+.news-title{
+    font-size:22px;
+    font-weight:500;
+    text-decoration:none;
+    color:#1d2b2b;
+    transition:0.3s;
+}
+
+.news-title:hover{
+    color:#4ca6a8;
+}
+
+.news-meta{
+    font-size:14px;
+    color:#555;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+    .hero h1{ font-size:32px; }
+    .hero p{ font-size:18px; }
+    .news-title{ font-size:18px; }
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="logo">
-      <span class="logo-sub">
-        <span class="logo-strong">Unstable</span>Thoughts.blog
-      </span>
-    </div>
-  </nav>
+<header id="navbar">
+    <div class="logo">UnstableThoughts.com</div>
+</header>
 
-  <!-- NEWS LIST -->
-  <div class="news-container">
+<section class="hero">
+    <h1>Article Library</h1>
+</section>
 
-<p>coming soon (*_*)</p>
+<div class="news-container">
 
+<p>Coming soon</p>
 
-  
+</div>
 
-  <script>
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 50);
-    });
-  </script>
+<script>
+window.addEventListener("scroll",function(){
+    const navbar=document.getElementById("navbar");
+    if(window.scrollY>50){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>
 
 </body>
 </html>
-
