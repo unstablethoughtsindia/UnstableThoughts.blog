@@ -1,328 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unstable Thoughts</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Magic</title>
 
-        body {
-            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            background-color: rgba(248, 248, 248, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .logo-sub {
-            font-weight: 300;
-            font-size: 0.9rem;
-        }
-
-        /* Hamburger Menu */
-        .menu-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .menu-toggle span {
-            width: 28px;
-            height: 2.5px;
-            background-color: #1a1a1a;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(7px, 7px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(4px, -4.9px);
-        }
-
-        /* Side Menu */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 5rem 2rem;
-            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 999;
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .side-menu.active {
-            right: 0;
-        }
-
-        .side-menu ul {
-            list-style: none;
-        }
-
-        .side-menu ul li {
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.3s ease;
-        }
-
-        .side-menu.active ul li {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .side-menu.active ul li:nth-child(1) { transition-delay: 0.1s; }
-        .side-menu.active ul li:nth-child(2) { transition-delay: 0.2s; }
-        .side-menu.active ul li:nth-child(3) { transition-delay: 0.3s; }
-
-        .side-menu ul li a {
-            color: #000000;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-        }
-
-        .side-menu ul li a:hover {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .hero-title-sub {
-            font-weight: 300;
-            margin-left: 0.5rem;
-        }
-
-        .hero-description {
-            font-size: 1.15rem;
-            line-height: 1.6;
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            color: #4a4a4a;
-        }
-
-        .hero-link {
-            font-size: 0.95rem;
-            color: #000000;
-            text-decoration: underline dashed;
-            text-underline-offset: 3px;
-            margin-bottom: 2.5rem;
-            display: inline-block;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .hero-link:hover {
-            opacity: 0.7;
-        }
-
-.cta-button {
-     display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 9px 18px;
-    background: linear-gradient(135deg, #236ac1, #4a90e2);
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 500;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(35, 106, 193, 0.25);
-    transition: all 0.3s ease;
- }
-
-.side-menu ul li a:hover {
-    color: #236ac1;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Georgia", serif;
 }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
+body{
+    background:#f4f4f4;
+    color:#1d2b2b;
+    line-height:1.6;
+}
 
-            .hero-description {
-                font-size: 1rem;
-            }
+/* ================= NAVBAR ================= */
 
-            .side-menu {
-                width: 100%;
-                right: -100%;
-            }
+header{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    transition:0.4s ease;
 
-            .featured-title {
-                font-size: 2rem;
-            }
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+    border-bottom:1px solid rgba(255,255,255,0.4);
+}
 
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
+header.scrolled{
+    background:rgba(15,30,30,0.85);
+    backdrop-filter:blur(35px);
+}
 
-            .navbar {
-                padding: 1rem 1.5rem;
-            }
-        }
+header.scrolled .logo{
+    color:white;
+}
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
+.logo{
+    font-size:18px;
+    transition:0.3s;
+}
 
-            .cta-button {
-                padding: 0.875rem 2rem;
-                font-size: 1rem;
-            }
-        }
-        
-    </style>
+
+
+.menu-btn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    position:fixed;          /* Changed */
+    top:11px;                /* Distance from top */
+    right:30px;              /* Push to right side */
+    z-index:1100;            /* Above everything */
+    transition:0.4s ease;
+
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.4);
+    box-shadow:0 8px 30px rgba(0,0,0,0.1);
+}
+
+.menu-btn span{
+    position:absolute;
+    width:22px;
+    height:1.9px;
+    background:#1d2b2b;
+    transition:0.4s ease;
+}
+
+.menu-btn span:nth-child(1){ transform:translateY(-6px); }
+.menu-btn span:nth-child(2){ transform:translateY(6px); }
+
+/* Animate to Cross */
+.menu-btn.active span:nth-child(1){
+    transform:rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+    transform:rotate(-45deg);
+}
+
+header.scrolled .menu-btn span{
+    background:white;
+}
+
+/* ========== NAV MENU ========== */
+
+nav ul{
+    list-style:none;
+    position:absolute;
+    top:75px;
+    right:8%;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:25px 50px;
+    border-radius:20px;
+    display:none;
+
+    background:rgba(255, 255, 255, 0.6); 
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+    border:1px solid rgba(255,255,255,0.4);
+}
+
+nav ul.active{
+    display:flex;
+}
+
+nav ul li a{
+    text-decoration:none;
+    font-size:16px;
+    color:#1d2b2b;
+    transition:0.3s;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:170px 8% 80px 8%;
+}
+
+.hero h1{
+    font-size:48px;
+    max-width:800px;
+    font-weight:500;
+}
+
+.hero p{
+    margin-top:25px;
+    font-size:20px;
+    max-width:700px;
+    color:#444;
+}
+.glass-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #1d2b2b;
+    transition: 0.4s;
+
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+/* ================= IMAGE ================= */
+
+.image-section{
+    position:relative;
+}
+
+.image-section img{
+    width:100%;
+    display:block;
+}
+
+/* ===== GLASS SOCIAL BAR (BOTTOM OF IMAGE) ===== */
+
+.social-bar{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:18px 40px;
+    border-radius:60px;
+    display:flex;
+    gap:30px;
+
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(35px);
+    -webkit-backdrop-filter:blur(35px);
+    border:1px solid rgba(255,255,255,0.4);
+    box-shadow:0 10px 40px rgba(0,0,0,0.15);
+}
+
+.social-bar a{
+    text-decoration:none;
+    font-size:14px;
+    letter-spacing:1px;
+    color:#1d2b2b;
+    transition:0.3s;
+}
+
+.social-bar a:hover{
+    color:#4ca6a8;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .social-bar{
+        gap:15px;
+        padding:14px 25px;
+        font-size:12px;
+    }
+}
+
+
+</style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="logo">
-        <span class="logo-sub"><span style="font-weight: 600;font-size: larger;">Ustable</span>Thoughts.blog</span>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
 
-    <!-- Side Menu -->
-    <div class="side-menu" id="sideMenu">
-        <ul>
-            <br>
-            <li><a href="About-Untablethoughts-and-Author">About</a></li>
-            <li><a href="Unstablethoughts-Article-library">Articles</a></li>
-            <li><a href="About-Untablethoughts-and-Author#Contact">Contact</a></li>
-        </ul>
+<body>
+
+<header id="navbar">
+    <div class="logo">UnstableThoughts.blog</div>
+
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1 class="hero-title">
-           <span>Ustable</span> <span class="hero-title-sub">Thoughts</span>
-        </h1>
-        <p class="hero-description">
-            A view into Political philosophy, Indian politics, Development and social issues.
-        </p>
-        <a href="About-Untablethoughts-and-Author" class="hero-link">Read about section</a>
-        <a href="Unstablethoughts-Article-library" class="cta-button">
-            Articles ~>
-        </a>
-        <br></br>
+    <nav>
+        <ul id="menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#social-bar">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    </section>
+<section class="hero">
+    <h1>A view into Political philosophy, Indian politics, Development and social issues.</h1>
+    <p>
+        The goal is simple: to create a meaningful impact through honest and thoughtful writing.
+    </p>
+    <a href="#" class="glass-btn">Articles</a>
+</section>
 
+<section id="social-bar" class="image-section">
+    <img src="unstableThoughts-image.jpg" alt="Homepage Image">
 
-    </section>
+    <div  class="social-bar">
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+    </div>
+</section>
 
-    <script>
-        // Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const sideMenu = document.getElementById('sideMenu');
-        const navbar = document.getElementById('navbar');
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+    document.getElementById("menuBtn").classList.toggle("active");
+}
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            sideMenu.classList.toggle('active');
-        });
+window.addEventListener("scroll",function(){
+    const navbar=document.getElementById("navbar");
+    if(window.scrollY>50){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>
 
-        // Close menu when clicking on a link
-        const menuLinks = document.querySelectorAll('.side-menu a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                sideMenu.classList.remove('active');
-            });
-        });
-
-        // Navbar shadow on scroll
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
