@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:url" content="https://unstablethoughts.blog/The-real-reason-for-starting-unstablethoughts_ar=001" />
+<meta property="og:title" content="The Question: Why? [The real reason for starting unstablethoughts]" />
+<title>UnstableThoughts - Article</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header id="navbar">
+    <div class="logo">UnstableThoughts.blog</div>
+
+    <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon" id="toggleIcon">☀️</span>
+        <span class="label" id="toggleLabel">Light Mode</span>
+    </button>
+</header>
+
+<section class="hero">
+    <h1>The Question: Why?</h1>
+    <div class="meta">Published March 2026 · 5 min read</div>
+
+    <div class="featured-image">
+        <img src="logo.png" alt="Article Image">
+    </div>
+</section>
+
+<section class="article-container">
+
+<p>The straightforward answer is this: our mainstream system is not doing the job it is supposed to do. The responsibilities that should have been fulfilled are being neglected. As a result, our people [Indians] are suffering silently.</p>
+
+<p>Every day, we see tragic incidents that could have been prevented.</p>
+
+
+<p>For example [some newses], people die while walking on footpaths after being hit by reckless drivers. In many cases, wealthy or influential individuals escape serious consequences, getting easily bailed out without accountability.</p>
+
+<p>People lose their lives when bridges collapse due to poor construction and lack of maintenance. Hospitals are burned in violent incidents, and even newborn babies are killed. These are not accidents alone - they are failures of systems.</p>
+
+<p>From 2020 to 2024, thousands [Reported number - 9483] of people have reportedly died due to pothole-related accidents. Roads meant for safe travel turn into death traps because of negligence.</p>
+
+<p>There are even heartbreaking cases where a two-month-old baby was killed for entering a temple due to caste discrimination. In a country that speaks of unity and progress, such incidents expose deep-rooted social problems that still remain unresolved.</p>
+
+<p>At this point, we don't need a missile attack from another country to destroy us. Our silence, our inaction, and our tolerance of injustice are enough to weaken us from within.</p>
+
+<p>Meanwhile, leaders celebrate not being attacked by external forces, while internal issues continue to claim innocent lives.</p>
+
+<p>So the real question is:</p>
+
+<p>Why don't people protest or raise their voices against these problems?</p>
+
+<p>Why do we normalize injustice?</p>
+
+<p>Why do we move on so quickly after every tragedy?</p>
+
+<p>This platform exists for a reason. It exists to ask difficult questions, to speak about uncomfortable truths, and to encourage people to think, question, and demand accountability.</p>
+
+<p>Change begins when silence ends. And this is where we choose to begin.</p>
+
+</section>
+
+<section class="image-section">
+    <img src="unstableThoughts-image2.jpg" alt="BOTTOM IMAGE">
+</section>
+
+<script>
+// Scroll behavior
+window.addEventListener("scroll", function(){
+    const navbar = document.getElementById("navbar");
+    if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+// Dark mode toggle
+const html = document.documentElement;
+const toggleBtn = document.getElementById("darkToggle");
+const toggleIcon = document.getElementById("toggleIcon");
+const toggleLabel = document.getElementById("toggleLabel");
+
+// Load saved preference
+const savedTheme = localStorage.getItem("theme") || "light";
+setTheme(savedTheme);
+
+toggleBtn.addEventListener("click", function(){
+    const current = html.getAttribute("data-theme");
+    setTheme(current === "dark" ? "light" : "dark");
+});
+
+function setTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    if(theme === "dark"){
+        toggleIcon.textContent = "🌙";
+        toggleLabel.textContent = "Dark Mode";
+    } else {
+        toggleIcon.textContent = "☀️";
+        toggleLabel.textContent = "Light Mode";
+    }
+}
+</script>
+
+</body>
+</html>
