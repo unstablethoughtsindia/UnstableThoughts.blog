@@ -152,7 +152,7 @@ header.scrolled .logo{
 
 .article-container p{
     font-family: 'Times New Roman', Times, serif;
-    margin-bottom:10px;
+    margin-bottom:15px;
     font-size:20px;
     line-height:1.9;          
     letter-spacing:0.3px;     
@@ -182,4 +182,5 @@ header.scrolled .logo{
     .article-container p{ font-size:18px; }
     .article-container h2{ font-size:22px; }
     .dark-toggle span.label { display: none; }
+
 }
