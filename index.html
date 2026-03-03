@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZGQK3S0HE"></script>
 <script>
@@ -12,8 +12,9 @@
   gtag('config', 'G-YZGQK3S0HE');
 </script>
 
- <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UnstableThoughts.blog</title>
   <meta name="description" 
         content="A view into Political philosophy, Indian politics, Development and social issues.
                  The goal is simple: to create a meaningful impact through honest and thoughtful writing.">
@@ -21,7 +22,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title>UnstableThoughts.blog</title>
   <link rel="icon" href="logo.png" type="image/png">
   
   <!-- Canonical Tag -->
@@ -53,7 +53,6 @@
   <link rel="icon" href="logo.png" sizes="32x32" />
   <link rel="icon" href="logo.png" sizes="16x16" />
     
-
 <style>
 *{
     margin:0;
@@ -196,7 +195,7 @@ nav ul li a{
 /* Smooth Hover */
 nav ul li a:hover{
     color:#4ca6a8;
-    letter-spacing:0.2px;
+    letter-spacing:0.5px;
 }
 
 
@@ -297,80 +296,94 @@ nav ul li a:hover{
     }
 }
 
-/* ================= EDITORIAL FEATURED ================= */
+/* ================= FEATURED SLIDER ================= */
 
 .featured{
-    padding:40px 8% 80px 8%;
+    padding:70px 8%;
 }
 
-.featured h2{
-    font-size:22px;
+.featured-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.featured-header h2{
+    font-size:24px;
     font-weight:500;
-    margin-bottom:35px;
-    letter-spacing:0.5px;
-    
 }
 
 .featured-track{
     display:flex;
-    gap:40px;
+    gap:25px;
     overflow-x:auto;
     scroll-behavior:smooth;
     padding-bottom:10px;
 }
 
 .featured-track::-webkit-scrollbar{
-    display:none;
+    height:6px;
 }
 
-.featured-article{
-    min-width:280px;
-    max-width:280px;
-    text-decoration:none;
-    color:inherit;
+.featured-track::-webkit-scrollbar-thumb{
+    background:rgba(0,0,0,0.15);
+    border-radius:10px;
 }
 
-.featured-article img{
+.featured-card{
+    min-width:260px;
+    max-width:260px;
+    background:white;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    transition:0.3s ease;
+    cursor:pointer;
+}
+
+
+
+.featured-card img{
     width:100%;
-    height:170px;
+    height:160px;
     object-fit:cover;
-    margin-bottom:15px;
-    transition:0.3s ease;
 }
 
-.featured-article h3{
-    font-size:17px;
+.featured-content{
+    padding:18px;
+}
+
+.featured-content h3{
+    font-size:16px;
+    margin-bottom:10px;
     font-weight:500;
-    line-height:1.4;
-    margin-bottom:8px;
-    position:relative;
-    display:inline-block;
 }
 
-.featured-article h3::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0%;
-    height:1px;
-    background:#1d2b2b;
-    transition:0.3s ease;
-}
-
-.featured-article:hover h3::after{
-    width:100%;
-}
-
-.featured-article p{
+.featured-content p{
     font-size:14px;
     color:#555;
     line-height:1.5;
 }
 
-/* Subtle image hover zoom */
-.featured-article:hover img{
-    transform:scale(1.01);
+/* Optional subtle fade on right side */
+.featured-wrapper{
+    position:relative;
+}
+
+.featured-wrapper::after{
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    width:60px;
+    height:100%;
+    background:linear-gradient(to right, transparent, #f4f4f4);
+    pointer-events:none;
+}
+.featured-link{
+    text-decoration:none;
+    color:inherit;
 }
 
 </style>
@@ -403,18 +416,26 @@ nav ul li a:hover{
     <a href="Unstablethoughts-Article-library" class="glass-btn">Articles</a>
 </section>
 
-
 <section class="featured">
-    <h2>Featured Article</h2>
+    <div class="featured-header">
+        <h2>Featured Articles</h2>
+    </div>
 
-    <div class="featured-track">
+    <div class="featured-wrapper">
+        <div class="featured-track">
 
-        <a href="The-real-reason-for-starting-unstablethoughts_ar=001" class="featured-article">
-            <img src="logo.png" alt="Logo-UnstableThoughts">
+            <a href="The-real-reason-for-starting-unstablethoughts_ar=001" class="featured-link">
+            <div class="featured-card">
+            <img src="logo.png" alt="Article image">
+            <div class="featured-content">
             <h3>The Question: Why?</h3>
             <p>The real reason for starting unstablethoughts</p>
-        </a>
+            </div>
+            </div>
+            </a>
 
+
+        </div>
     </div>
 </section>
 
