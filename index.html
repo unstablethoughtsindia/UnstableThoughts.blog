@@ -11,10 +11,48 @@
 
   gtag('config', 'G-YZGQK3S0HE');
 </script>
-    
+
+ <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" 
+        content="A view into Political philosophy, Indian politics, Development and social issues.
+                 The goal is simple: to create a meaningful impact through honest and thoughtful writing.">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UnstableThoughts.blog</title>
+
+ <title>UnstableThoughts.blog</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  
+  <!-- Canonical Tag -->
+  <link rel="canonical" href="https://unstablethoughts.blog/" />
+
+  <!-- Open Graph Meta Tags (for Facebook, LinkedIn) -->
+  <meta property="og:title" content="UnstableThoughts" />
+  <meta property="og:description" content="A view into Political philosophy, Indian politics, Development and social issues. The goal is simple: to create a meaningful impact through honest and thoughtful writing." />
+  <meta property="og:url" content="https://unstablethoughts.blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://unstablethoughts.blog/logo.png" />
+
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://unstablethoughts.blog/" />
+  <meta property="og:title" content="UnstableThoughts" />
+  <meta property="og:description" content="A view into Political philosophy, Indian politics, Development and social issues. The goal is simple: to create a meaningful impact through honest and thoughtful writing." />
+  <meta property="og:image" content="https://unstablethoughts.blog/logo.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://unstablethoughts.blog/" />
+  <meta name="twitter:title" content="UnstableThoughts" />
+  <meta name="twitter:description" content="A view into Political philosophy, Indian politics, Development and social issues. The goal is simple: to create a meaningful impact through honest and thoughtful writing." />
+  <meta name="twitter:image" content="https://unstablethoughts.blog/images/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" sizes="32x32" />
+  <link rel="icon" href="logo.png" sizes="16x16" />
+    
 
 <style>
 *{
@@ -158,14 +196,14 @@ nav ul li a{
 /* Smooth Hover */
 nav ul li a:hover{
     color:#4ca6a8;
-    letter-spacing:0.5px;
+    letter-spacing:0.2px;
 }
 
 
 /* ================= HERO ================= */
 
 .hero{
-    padding:170px 8% 80px 8%;
+    padding:170px 8% 20px 8%;
 }
 
 .hero h1{
@@ -259,6 +297,81 @@ nav ul li a:hover{
     }
 }
 
+/* ================= EDITORIAL FEATURED ================= */
+
+.featured{
+    padding:40px 8% 80px 8%;
+}
+
+.featured h2{
+    font-size:22px;
+    font-weight:500;
+    margin-bottom:35px;
+    letter-spacing:0.5px;
+    
+}
+
+.featured-track{
+    display:flex;
+    gap:40px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    padding-bottom:10px;
+}
+
+.featured-track::-webkit-scrollbar{
+    display:none;
+}
+
+.featured-article{
+    min-width:280px;
+    max-width:280px;
+    text-decoration:none;
+    color:inherit;
+}
+
+.featured-article img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    margin-bottom:15px;
+    transition:0.3s ease;
+}
+
+.featured-article h3{
+    font-size:17px;
+    font-weight:500;
+    line-height:1.4;
+    margin-bottom:8px;
+    position:relative;
+    display:inline-block;
+}
+
+.featured-article h3::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:1px;
+    background:#1d2b2b;
+    transition:0.3s ease;
+}
+
+.featured-article:hover h3::after{
+    width:100%;
+}
+
+.featured-article p{
+    font-size:14px;
+    color:#555;
+    line-height:1.5;
+}
+
+/* Subtle image hover zoom */
+.featured-article:hover img{
+    transform:scale(1.01);
+}
 
 </style>
 </head>
@@ -277,7 +390,7 @@ nav ul li a:hover{
         <ul id="menu">
             <li><a href="About-Untablethoughts-and-Author">About</a></li>
             <li><a href="Unstablethoughts-Article-library">Articles</a></li>
-            <li><a href="#social-bar">Contact</a></li>
+            <li><a href="#social-bar">Social Media</a></li>
         </ul>
     </nav>
 </header>
@@ -290,13 +403,28 @@ nav ul li a:hover{
     <a href="Unstablethoughts-Article-library" class="glass-btn">Articles</a>
 </section>
 
+
+<section class="featured">
+    <h2>Featured Article</h2>
+
+    <div class="featured-track">
+
+        <a href="The-real-reason-for-starting-unstablethoughts_ar=001" class="featured-article">
+            <img src="logo.png" alt="Logo-UnstableThoughts">
+            <h3>The Question: Why?</h3>
+            <p>The real reason for starting unstablethoughts</p>
+        </a>
+
+    </div>
+</section>
+
 <section id="social-bar" class="image-section">
     <img src="unstableThoughts-image.jpg" alt="Homepage Image">
 
     <div  class="social-bar">
-        <a href="https://www.instagram.com/abinjose_ph?igsh=YWw0M3RtMDhyODBq">Instagram</a>
-        <a href="https://x.com/AbinJos_eph">Twitter</a>
-        <a href="https://www.linkedin.com/in/abin-joseph-46880727a?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
+        <a href="https://www.instagram.com/unstablethoughtsindia?igsh=dGc4YnF3Z2l5djQ3">Instagram</a>
+        <a href="https://x.com/unstable_india">Twitter</a>
+        <a href="mailto:unstablethoughtsindia@gmail.com">Email</a>
     </div>
 </section>
 
