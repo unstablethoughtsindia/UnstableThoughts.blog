@@ -135,6 +135,7 @@ header.scrolled .logo{
     margin-top:40px;
     width:100%;
     overflow:hidden;
+    border-radius: 5px;
 }
 
 .featured-image img{
@@ -184,3 +185,4 @@ header.scrolled .logo{
     .dark-toggle span.label { display: none; }
 
 }
+
