@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:url" content="https://unstablethoughts.blog/The-real-reason-for-starting-unstablethoughts_ar=001" />
+<meta property="og:title" content="The Question: Why? [The real reason for starting unstablethoughts]" />
+<title>UnstableThoughts — The Question: Why?</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── CSS VARIABLES (original palette) ─── */
+  :root, [data-theme="light"] {
+    --bg:              #f4f4f4;
+    --bg-nav:          rgba(255,255,255,0.2);
+    --bg-nav-scrolled: rgba(15,30,30,0.85);
+    --surface:         #ffffff;
+    --border:          rgba(255,255,255,0.4);
+    --border-solid:    #e0dcd4;
+    --text-primary:    #1d2b2b;
+    --text-secondary:  #444;
+    --text-muted:      #666;
+    --article-text:    #000000;
+    --accent:          #1d2b2b;
+    --accent-inv:      #f4f4f4;
+    --tag-bg:          #e8e4dc;
+    --tag-text:        #1d2b2b;
+    --toggle-bg:       #1d2b2b;
+    --toggle-color:    #f4f4f4;
+    --nav-height:      64px;
+    --col-width:       760px;
+    --transition:      0.4s ease;
+  }
+
+  [data-theme="dark"] {
+    --bg:              #0f1e1e;
+    --bg-nav:          rgba(15,30,30,0.4);
+    --bg-nav-scrolled: rgba(5,10,10,0.92);
+    --surface:         #1a2e2e;
+    --border:          rgba(255,255,255,0.08);
+    --border-solid:    rgba(255,255,255,0.12);
+    --text-primary:    #e8e0d0;
+    --text-secondary:  #b0a898;
+    --text-muted:      #8a9a9a;
+    --article-text:    #d4ccc0;
+    --accent:          #e8e0d0;
+    --accent-inv:      #0f1e1e;
+    --tag-bg:          rgba(255,255,255,0.07);
+    --tag-text:        #c0b8a8;
+    --toggle-bg:       #e8e0d0;
+    --toggle-color:    #0f1e1e;
+    --nav-height:      64px;
+    --col-width:       760px;
+    --transition:      0.4s ease;
+  }
+
+  /* ─── RESET ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: 'Playfair Display', Georgia, serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    transition: background var(--transition), color var(--transition);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-height);
+    background: var(--bg-nav);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    transition: background var(--transition), border-color var(--transition);
+  }
+  nav.scrolled {
+    background: var(--bg-nav-scrolled);
+  }
+  nav.scrolled .nav-logo {
+    color: #ffffff;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--transition);
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-actions { display: flex; align-items: center; gap: 8px; }
+
+  /* Share button */
+  .btn-share {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 18px;
+    background: var(--toggle-bg);
+    color: var(--toggle-color);
+    border: none;
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .btn-share:hover { opacity: 0.8; transform: scale(1.03); }
+  .btn-share svg { flex-shrink: 0; }
+
+  /* Theme toggle — matches original .dark-toggle */
+  .btn-theme {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background: var(--toggle-bg);
+    color: var(--toggle-color);
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .btn-theme:hover { opacity: 0.8; transform: scale(1.03); }
+  [data-theme="dark"] .btn-theme { }
+  .theme-icon {
+    width: 15px; height: 15px;
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+  }
+  [data-theme="dark"] .theme-icon { transform: rotate(180deg); }
+  .theme-label { display: none; }
+  @media (min-width: 520px) { .theme-label { display: inline; } }
+
+  /* ─── SHARE DROPDOWN ─── */
+  .share-wrapper { position: relative; }
+  .share-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg);
+    border: 1px solid var(--border-solid);
+    border-radius: 10px;
+    padding: 6px;
+    min-width: 180px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 200;
+  }
+  .share-dropdown.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  .share-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    transition: background 0.14s ease, color 0.14s ease;
+  }
+  .share-item:hover {
+    background: var(--tag-bg);
+    color: var(--text-primary);
+  }
+  .share-item svg { flex-shrink: 0; opacity: 0.7; }
+  .share-divider {
+    height: 1px;
+    background: var(--border-solid);
+    margin: 4px 0;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    padding: calc(var(--nav-height) + 64px) 8% 0;
+  }
+
+  .article-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .article-category::before {
+    content: '';
+    display: block;
+    width: 20px; height: 1.5px;
+    background: var(--text-muted);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    max-width: 800px;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 18px 0;
+    border-top: 1px solid var(--border-solid);
+    border-bottom: 1px solid var(--border-solid);
+    margin-bottom: 40px;
+  }
+  .meta-author {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--toggle-bg);
+    color: var(--toggle-color);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .author-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .meta-sep { color: var(--border-solid); font-size: 1rem; }
+  .meta-info {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .meta-tag {
+    margin-left: auto;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* ─── FEATURED IMAGE ─── */
+  .featured-img {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 52px;
+    background: var(--tag-bg);
+  }
+  .featured-img img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+
+  /* ─── ARTICLE BODY ─── */
+  .article-body {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    padding: 0 7%;
+  }
+  .article-body p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+    color: var(--article-text);
+    margin-bottom: 15px;
+    transition: color var(--transition);
+  }
+  .article-body strong {
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 3px solid var(--text-muted);
+    padding: 16px 0 16px 28px;
+    margin: 2.4em 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.3rem !important;
+    font-style: italic !important;
+    line-height: 1.6 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 0 !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Question block */
+  .questions-block {
+    background: var(--tag-bg);
+    border-radius: 5px;
+    padding: 28px 32px;
+    margin: 2em 0;
+  }
+  .questions-block p {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-size: 1.08rem !important;
+    margin-bottom: 0.7em !important;
+    line-height: 1.6 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: 0 !important;
+  }
+  .questions-block p:last-child { margin-bottom: 0 !important; }
+
+  /* ─── CLOSING LINE ─── */
+  .closing-line {
+    border-top: 1px solid var(--border-solid);
+    margin: 48px 0 16px;
+    padding-top: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ─── BOTTOM IMAGE ─── */
+  .bottom-section {
+    max-width: var(--col-width);
+    margin: 48px auto 80px;
+    padding: 0 7%;
+  }
+  .bottom-section img {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border-solid);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .footer-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    background: var(--toggle-bg);
+    color: var(--toggle-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.84rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    white-space: nowrap;
+    z-index: 999;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  .reading-progress {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    height: 2px;
+    background: var(--text-primary);
+    width: 0%;
+    z-index: 99;
+    transition: width 0.1s linear;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1         { animation: fadeUp 0.6s ease both; animation-delay: 0.05s; }
+  .hero-subtitle   { animation: fadeUp 0.6s ease both; animation-delay: 0.14s; }
+  .meta-row        { animation: fadeUp 0.6s ease both; animation-delay: 0.22s; }
+  .featured-img    { animation: fadeUp 0.6s ease both; animation-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 32px; }
+    .article-body p { font-size: 18px; }
+    .theme-label, .share-label { display: none; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Reading Progress -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Unstable<span>Thoughts</span></a>
+
+    <div class="nav-actions">
+
+      <!-- Theme Toggle -->
+      <button class="btn-theme" id="darkToggle" aria-label="Toggle dark mode">
+        <svg class="theme-icon" id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- sun default -->
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <span class="theme-label" id="themeLabel">Light</span>
+      </button>
+
+      <!-- Share Button -->
+      <div class="share-wrapper">
+        <button class="btn-share" id="shareBtn" aria-label="Share article">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
+          </svg>
+          Share
+        </button>
+        <div class="share-dropdown" id="shareDropdown">
+          <button class="share-item" onclick="copyLink()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Copy link
+          </button>
+          <div class="share-divider"></div>
+          <button class="share-item" onclick="shareToX()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.733-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Post on X
+          </button>
+          <button class="share-item" onclick="shareToLinkedIn()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Share on LinkedIn
+          </button>
+          <button class="share-item" onclick="shareToWhatsApp()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="article-category">Opinion · India</div>
+  <h1>The Question: Why?</h1>
+  <p class="hero-subtitle">The real reason for starting UnstableThoughts — and why silence is no longer an option.</p>
+
+  <div class="meta-row">
+    <div class="meta-author">
+      <div class="avatar">U</div>
+      <span class="author-name">UnstableThoughts</span>
+    </div>
+    <span class="meta-sep">·</span>
+    <span class="meta-info">March 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-info">2 min read</span>
+    <span class="meta-tag">Issue #001</span>
+  </div>
+
+  <div class="featured-img">
+    <img src="logo.png" alt="UnstableThoughts">
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <p>The straightforward answer is this: our mainstream system is not doing the job it is supposed to do. The responsibilities that should have been fulfilled are being neglected. As a result, our people — Indians — are suffering silently.</p>
+
+  <p>Every day, we see tragic incidents that could have been prevented.</p>
+
+  <p>People die while walking on footpaths after being hit by reckless drivers. In many cases, wealthy or influential individuals escape without serious consequences — getting easily bailed out without accountability.</p>
+
+  <p>People lose their lives when bridges collapse due to poor construction and lack of maintenance. Hospitals are burned in violent incidents, and even newborn babies are killed. These are not accidents alone — they are failures of systems.</p>
+
+  <p>From 2020 to 2024, <strong>9,483 people</strong> have reportedly died due to pothole-related accidents. Roads meant for safe travel turn into death traps because of negligence.</p>
+
+  <p>There are even heartbreaking cases where a two-month-old baby was killed for entering a temple due to caste discrimination. In a country that speaks of unity and progress, such incidents expose deep-rooted social problems that still remain unresolved.</p>
+
+  <div class="pull-quote">
+    <p>At this point, we don't need a missile attack from another country to destroy us. Our silence, our inaction, and our tolerance of injustice are enough to weaken us from within.</p>
+  </div>
+
+  <p>Meanwhile, leaders celebrate not being attacked by external forces, while internal issues continue to claim innocent lives.</p>
+
+  <p>So the real question is:</p>
+
+  <div class="questions-block">
+    <p>Why don't people protest or raise their voices against these problems?</p>
+    <p>Why do we normalize injustice?</p>
+    <p>Why do we move on so quickly after every tragedy?</p>
+  </div>
+
+  <p>This platform exists for a reason. It exists to ask difficult questions, to speak about uncomfortable truths, and to encourage people to think, question, and demand accountability.</p>
+
+  <p>Change begins when silence ends. And this is where we choose to begin.</p>
+
+  <div class="closing-line">— UnstableThoughts · Issue #001 · March 2026</div>
+
+</article>
+
+<!-- BOTTOM IMAGE -->
+<div class="bottom-section">
+  <img src="unstableThoughts-image2.jpg" alt="UnstableThoughts visual">
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">UnstableThoughts.blog</div>
+  <div class="footer-text">Asking the questions that make us uncomfortable.</div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ── Reading progress ── */
+  const progressBar = document.getElementById('readingProgress');
+  const navEl = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+    if (scrollTop > 50) navEl.classList.add('scrolled');
+    else navEl.classList.remove('scrolled');
+  });
+
+  /* ── Theme ── */
+  const html = document.documentElement;
+  const themeIcon = document.getElementById('themeIcon');
+  const themeLabel = document.getElementById('themeLabel');
+
+  const SUN_PATH = `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
+  const MOON_PATH = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+
+  function setTheme(t) {
+    html.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+    if (t === 'dark') {
+      themeIcon.innerHTML = SUN_PATH;
+      themeLabel.textContent = 'Dark';
+    } else {
+      themeIcon.innerHTML = MOON_PATH;
+      themeLabel.textContent = 'Light';
+    }
+  }
+
+  document.getElementById('darkToggle').addEventListener('click', () => {
+    setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  setTheme(localStorage.getItem('theme') || 'light');
+
+  /* ── Share dropdown ── */
+  const shareBtn = document.getElementById('shareBtn');
+  const shareDropdown = document.getElementById('shareDropdown');
+
+  shareBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    shareDropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', () => shareDropdown.classList.remove('open'));
+  shareDropdown.addEventListener('click', e => e.stopPropagation());
+
+  /* ── Share actions ── */
+  const PAGE_URL = 'https://unstablethoughts.blog/The-real-reason-for-starting-unstablethoughts_ar=001';
+  const PAGE_TITLE = 'The Question: Why? — UnstableThoughts';
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(PAGE_URL).then(() => showToast('Link copied to clipboard'));
+    shareDropdown.classList.remove('open');
+  }
+  function shareToX() {
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(PAGE_URL)}&text=${encodeURIComponent(PAGE_TITLE)}`, '_blank');
+    shareDropdown.classList.remove('open');
+  }
+  function shareToLinkedIn() {
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(PAGE_URL)}`, '_blank');
+    shareDropdown.classList.remove('open');
+  }
+  function shareToWhatsApp() {
+    window.open(`https://wa.me/?text=${encodeURIComponent(PAGE_TITLE + ' ' + PAGE_URL)}`, '_blank');
+    shareDropdown.classList.remove('open');
+  }
+
+  /* ── Native share fallback ── */
+  if (navigator.share) {
+    shareBtn.addEventListener('dblclick', () => {
+      navigator.share({ title: PAGE_TITLE, url: PAGE_URL });
+    });
+  }
+</script>
+</body>
+</html>
