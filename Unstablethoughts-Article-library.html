@@ -138,7 +138,6 @@ header.scrolled .menu-btn span   { background: #fff; }
 .nav-link:hover  { color: var(--text); background: var(--teal-dim); }
 .nav-link.active { color: var(--teal); }
 
-/* Theme toggle */
 .btn-theme {
   display: flex;
   align-items: center;
@@ -162,7 +161,6 @@ header.scrolled .menu-btn span   { background: #fff; }
 .theme-lbl { display: none; }
 @media (min-width: 520px) { .theme-lbl { display: inline; } }
 
-/* Hamburger */
 .menu-btn {
   display: none;
   width: 40px; height: 40px;
@@ -227,71 +225,155 @@ header.scrolled .menu-btn span   { background: #fff; }
 .reading-progress {
   position: fixed;
   top: 68px; left: 0;
-  height: 2px;
-  width: 0%;
+  height: 2px; width: 0%;
   background: var(--teal);
   z-index: 998;
   transition: width 0.1s linear;
 }
 
 /* ════════════════════════════════════════
-   PAGE HERO
+   HERO — SPLIT TWO-COLUMN
+   Left: sticky label column
+   Right: large editorial headline
 ════════════════════════════════════════ */
 .page-hero {
-  padding: calc(68px + 70px) 8% 56px;
-  max-width: 900px;
+  margin-top: 68px;
+  padding: 0 8%;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 54vh;
   border-bottom: 1px solid var(--border-solid);
+  overflow: hidden;
+  position: relative;
 }
 
-.page-eyebrow {
+/* Faint vertical rule between columns */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  left: calc(8% + 200px);
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border-solid);
+}
+
+/* Left column */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52px 0 52px;
+  border-right: none;
+}
+
+.hero-issue-number {
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  align-self: flex-start;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.05s;
+}
+
+.hero-left-bottom {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.2s;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--teal);
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.05s;
+  margin-bottom: 10px;
 }
-.page-eyebrow::before {
+.hero-tag::before {
   content: '';
   display: block;
-  width: 28px; height: 1px;
+  width: 16px; height: 1px;
   background: var(--teal);
 }
-
-.page-hero h1 {
+.hero-article-count {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: 3.2rem;
+  font-weight: 700;
   color: var(--text);
-  margin-bottom: 16px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.15s;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.hero-article-count span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  display: block;
+  margin-top: 6px;
 }
 
-.page-hero p {
+/* Right column */
+.hero-right {
+  padding: 52px 0 52px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Big ghost number behind text */
+.hero-ghost {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(140px, 22vw, 260px);
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0.035;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.06em;
+}
+
+.hero-right h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  max-width: 700px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.15s;
+}
+.hero-right h1 em { font-style: italic; color: var(--teal); }
+
+.hero-desc {
   font-family: 'DM Sans', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--text-mid);
   line-height: 1.7;
-  max-width: 600px;
+  max-width: 500px;
   opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.25s;
+  animation: fadeUp 0.7s ease forwards 0.28s;
 }
 
 /* ════════════════════════════════════════
-   ARTICLE COUNT BAR
+   FILTER BAR
 ════════════════════════════════════════ */
-.library-meta {
-  padding: 18px 8%;
+.filter-bar {
+  padding: 16px 8%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -299,22 +381,45 @@ header.scrolled .menu-btn span   { background: #fff; }
   gap: 12px;
   flex-wrap: wrap;
 }
-.library-count {
+
+.filter-count {
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   color: var(--text-muted);
 }
-.library-count span {
-  font-weight: 500;
+.filter-count strong {
   color: var(--teal);
+  font-weight: 600;
+}
+
+.filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  border: 1px solid var(--border-solid);
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+.filter-pill:hover,
+.filter-pill.active {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border-color: var(--teal);
 }
 
 /* ════════════════════════════════════════
    ARTICLE LIST
 ════════════════════════════════════════ */
 .article-list {
-  max-width: 900px;
-  margin: 0 auto;
   padding: 0 8% 100px;
 }
 
@@ -327,11 +432,9 @@ header.scrolled .menu-btn span   { background: #fff; }
   border-bottom: 1px solid var(--border-solid);
   text-decoration: none;
   color: inherit;
-  transition: background 0.2s ease;
   position: relative;
 }
 
-/* Teal left indicator on hover */
 .article-item::before {
   content: '';
   position: absolute;
@@ -411,15 +514,6 @@ header.scrolled .menu-btn span   { background: #fff; }
   transform: translateX(3px);
 }
 
-/* Empty state */
-.empty-state {
-  padding: 64px 0;
-  text-align: center;
-  color: var(--text-muted);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-}
-
 /* ════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════ */
@@ -475,16 +569,42 @@ footer {
 /* ════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .page-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .page-hero::after { display: none; }
+  .hero-left {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 36px 0 0;
+    border-bottom: 1px solid var(--border-solid);
+    padding-bottom: 28px;
+  }
+  .hero-issue-number {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  .hero-right { padding: 36px 0 52px; }
+  .hero-ghost { display: none; }
+}
+
 @media (max-width: 640px) {
   header { padding: 0 5%; height: 60px; }
   .mobile-menu { top: 60px; padding: 10px 5%; }
   .reading-progress { top: 60px; }
 
-  .page-hero { padding: calc(60px + 52px) 5% 44px; }
-  .page-hero h1 { font-size: 2rem; }
-  .page-hero p  { font-size: 15px; }
+  .page-hero { margin-top: 60px; padding: 0 5%; }
+  .hero-left { padding: 28px 0 22px; }
+  .hero-right { padding: 28px 0 44px; }
+  .hero-right h1 { font-size: 2rem; margin-bottom: 18px; }
+  .hero-desc { font-size: 14.5px; }
+  .hero-article-count { font-size: 2.4rem; }
 
-  .library-meta { padding: 14px 5%; }
+  .filter-bar { padding: 14px 5%; }
+  .filter-pills { display: none; }
 
   .article-list { padding: 0 5% 80px; }
   .article-item {
@@ -495,7 +615,6 @@ footer {
   .article-item::before { left: -5%; }
   .article-arrow { display: none; }
   .article-title { font-size: 1.1rem; }
-  .article-excerpt { font-size: 13.5px; }
 
   footer {
     padding: 28px 5%;
@@ -507,8 +626,8 @@ footer {
 }
 
 @media (max-width: 380px) {
-  .page-hero h1 { font-size: 1.7rem; }
   .logo { font-size: 14px; }
+  .hero-right h1 { font-size: 1.7rem; }
 }
 </style>
 </head>
@@ -520,13 +639,12 @@ footer {
 <!-- ═══ HEADER ═══ -->
 <header id="navbar">
   <a href="/" class="logo">UnstableThoughts.blog</a>
-
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="About-Untablethoughts-and-Author" class="nav-link">About</a></li>
+      <li><a href="Unstablethoughts-Article-library" class="nav-link active">Articles</a></li>
       <li><a href="/#connect" class="nav-link">Connect</a></li>
     </ul>
-
     <button class="btn-theme" id="darkToggle" aria-label="Toggle theme">
       <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="5"/>
@@ -537,7 +655,222 @@ footer {
       </svg>
       <span class="theme-lbl" id="themeLabel">Light</span>
     </button>
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()" role="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
 
+<!-- Mobile nav -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="About-Untablethoughts-and-Author" onclick="closeMenu()">About</a>
+  <a href="Unstablethoughts-Article-library" onclick="closeMenu()">Articles</a>
+  <a href="/#connect" onclick="closeMenu()">Connect</a>
+</nav>
+
+<!-- ═══ HERO — SPLIT LAYOUT ═══ -->
+<section class="page-hero">
+
+  <!-- Left: rotated label + article count -->
+  <div class="hero-left">
+    <span class="hero-issue-number">Archive · UnstableThoughts</span>
+    <div class="hero-left-bottom">
+      <div class="hero-tag">Published</div>
+      <div class="hero-article-count">
+        01
+        <span>article so far</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: headline + desc -->
+  <div class="hero-right">
+    <div class="hero-ghost">All</div>
+    <h1>Every word,<br><em>every question</em>,<br>in one place.</h1>
+    <p class="hero-desc">
+      Political philosophy, Indian politics, development, and social issues. Writing that refuses to look away.
+    </p>
+  </div>
+
+</section>
+
+<!-- ═══ FILTER BAR ═══ -->
+<div class="filter-bar reveal">
+  <p class="filter-count"><strong>1</strong> article published</p>
+  <div class="filter-pills">
+    <button class="filter-pill active">All</button>
+    <button class="filter-pill">Opinion</button>
+    <button class="filter-pill">Politics</button>
+    <button class="filter-pill">Social Issues</button>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE LIST ═══ -->
+<div class="article-list">
+
+  <a href="The-real-reason-for-starting-unstablethoughts_ar=001" class="article-item reveal">
+    <div class="article-main">
+      <span class="article-tag">Opinion · India · Issue #001</span>
+      <h2 class="article-title">The Question: Why? — The real reason for starting UnstableThoughts</h2>
+      <p class="article-excerpt">The straightforward answer: our mainstream system is not doing the job it is supposed to do. The responsibilities that should have been fulfilled are being neglected.</p>
+      <div class="article-meta">
+        <span>March 2026</span>
+        <span class="article-meta-dot"></span>
+        <span>2 min read</span>
+      </div>
+    </div>
+    <div class="article-arrow">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- Add more articles above this line -->
+
+</div>
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+.footer {
+  padding: 36px 8%;
+  border-top: 1px solid var(--border-solid);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.footer-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.footer-nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.footer-nav a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-nav a:hover { color: var(--teal); }
+
+/* ════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .page-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .page-hero::after { display: none; }
+  .hero-left {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 36px 0 0;
+    border-bottom: 1px solid var(--border-solid);
+    padding-bottom: 28px;
+  }
+  .hero-issue-number {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  .hero-right { padding: 36px 0 52px; }
+  .hero-ghost { display: none; }
+}
+
+@media (max-width: 640px) {
+  header { padding: 0 5%; height: 60px; }
+  .mobile-menu { top: 60px; padding: 10px 5%; }
+  .reading-progress { top: 60px; }
+
+  .page-hero { margin-top: 60px; padding: 0 5%; }
+  .hero-left { padding: 28px 0 22px; }
+  .hero-right { padding: 28px 0 44px; }
+  .hero-right h1 { font-size: 2rem; margin-bottom: 18px; }
+  .hero-desc { font-size: 14.5px; }
+  .hero-article-count { font-size: 2.4rem; }
+
+  .filter-bar { padding: 14px 5%; }
+  .filter-pills { display: none; }
+
+  .article-list { padding: 0 5% 80px; }
+  .article-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 26px 0;
+  }
+  .article-item::before { left: -5%; }
+  .article-arrow { display: none; }
+  .article-title { font-size: 1.1rem; }
+
+  footer {
+    padding: 28px 5%;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .footer-nav { justify-content: center; }
+}
+
+@media (max-width: 380px) {
+  .logo { font-size: 14px; }
+  .hero-right h1 { font-size: 1.7rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Reading Progress -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- ═══ HEADER ═══ -->
+<header id="navbar">
+  <a href="/" class="logo">UnstableThoughts.blog</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="About-Untablethoughts-and-Author" class="nav-link">About</a></li>
+      <li><a href="Unstablethoughts-Article-library" class="nav-link active">Articles</a></li>
+      <li><a href="/#connect" class="nav-link">Connect</a></li>
+    </ul>
+    <button class="btn-theme" id="darkToggle" aria-label="Toggle theme">
+      <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <span class="theme-lbl" id="themeLabel">Light</span>
+    </button>
     <div class="menu-btn" id="menuBtn" onclick="toggleMenu()" role="button" aria-label="Open menu">
       <span></span><span></span><span></span>
     </div>
@@ -550,16 +883,41 @@ footer {
   <a href="/#connect" onclick="closeMenu()">Connect</a>
 </nav>
 
-<!-- ═══ PAGE HERO ═══ -->
+<!-- ═══ HERO — SPLIT LAYOUT ═══ -->
 <section class="page-hero">
-  <span class="page-eyebrow">Archive</span>
-  <h1>Article Library</h1>
-  <p>Every piece of writing published on UnstableThoughts — questions worth asking, truths worth saying.</p>
+
+  <!-- Left: rotated label + article count -->
+  <div class="hero-left">
+    <span class="hero-issue-number">Archive · UnstableThoughts</span>
+    <div class="hero-left-bottom">
+      <div class="hero-tag">Published</div>
+      <div class="hero-article-count">
+        01
+        <span>article so far</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: headline + desc -->
+  <div class="hero-right">
+    <div class="hero-ghost">All</div>
+    <h1>Every word,<br><em>every question</em>,<br>in one place.</h1>
+    <p class="hero-desc">
+      Political philosophy, Indian politics, development, and social issues. 
+    </p>
+  </div>
+
 </section>
 
-<!-- ═══ META BAR ═══ -->
-<div class="library-meta reveal">
-  <p class="library-count"><span>1</span> article published</p>
+<!-- ═══ FILTER BAR ═══ -->
+<div class="filter-bar reveal">
+  <p class="filter-count"><strong>1</strong> article published</p>
+  <div class="filter-pills">
+    <button class="filter-pill active">All</button>
+    <button class="filter-pill">Opinion</button>
+    <button class="filter-pill">Politics</button>
+    <button class="filter-pill">Social Issues</button>
+  </div>
 </div>
 
 <!-- ═══ ARTICLE LIST ═══ -->
@@ -569,7 +927,6 @@ footer {
     <div class="article-main">
       <span class="article-tag">Opinion · India · Issue #001</span>
       <h2 class="article-title">The Question: Why? — The real reason for starting UnstableThoughts</h2>
-
       <div class="article-meta">
         <span>March 2026</span>
         <span class="article-meta-dot"></span>
@@ -638,6 +995,14 @@ function closeMenu() {
 }
 document.addEventListener('click', e => {
   if (!e.target.closest('#menuBtn') && !e.target.closest('#mobileMenu')) closeMenu();
+});
+
+/* ── Filter pills (visual only) ── */
+document.querySelectorAll('.filter-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+  });
 });
 
 /* ── Scroll reveal ── */
