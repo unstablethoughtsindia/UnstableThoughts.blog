@@ -14,7 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
 /* ════════════════════════════════════════
    THEME VARIABLES
 ════════════════════════════════════════ */
@@ -232,9 +231,7 @@ header.scrolled .menu-btn span   { background: #fff; }
 }
 
 /* ════════════════════════════════════════
-   HERO — SPLIT TWO-COLUMN
-   Left: sticky label column
-   Right: large editorial headline
+   HERO 
 ════════════════════════════════════════ */
 .page-hero {
   margin-top: 68px;
@@ -247,7 +244,6 @@ header.scrolled .menu-btn span   { background: #fff; }
   position: relative;
 }
 
-/* Faint vertical rule between columns */
 .page-hero::after {
   content: '';
   position: absolute;
@@ -257,7 +253,6 @@ header.scrolled .menu-btn span   { background: #fff; }
   background: var(--border-solid);
 }
 
-/* Left column */
 .hero-left {
   display: flex;
   flex-direction: column;
@@ -319,7 +314,6 @@ header.scrolled .menu-btn span   { background: #fff; }
   margin-top: 6px;
 }
 
-/* Right column */
 .hero-right {
   padding: 52px 0 52px 60px;
   display: flex;
@@ -328,7 +322,6 @@ header.scrolled .menu-btn span   { background: #fff; }
   position: relative;
 }
 
-/* Big ghost number behind text */
 .hero-ghost {
   position: absolute;
   top: -10px;
@@ -633,10 +626,8 @@ footer {
 </head>
 <body>
 
-<!-- Reading Progress -->
 <div class="reading-progress" id="readingProgress"></div>
 
-<!-- ═══ HEADER ═══ -->
 <header id="navbar">
   <a href="/" class="logo">UnstableThoughts.blog</a>
   <div class="nav-right">
@@ -646,13 +637,7 @@ footer {
       <li><a href="/#connect" class="nav-link">Connect</a></li>
     </ul>
     <button class="btn-theme" id="darkToggle" aria-label="Toggle theme">
-      <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
+      <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
       <span class="theme-lbl" id="themeLabel">Light</span>
     </button>
     <div class="menu-btn" id="menuBtn" onclick="toggleMenu()" role="button" aria-label="Open menu">
@@ -661,17 +646,13 @@ footer {
   </div>
 </header>
 
-<!-- Mobile nav -->
 <nav class="mobile-menu" id="mobileMenu">
   <a href="About-Untablethoughts-and-Author" onclick="closeMenu()">About</a>
   <a href="Unstablethoughts-Article-library" onclick="closeMenu()">Articles</a>
   <a href="/#connect" onclick="closeMenu()">Connect</a>
 </nav>
 
-<!-- ═══ HERO — SPLIT LAYOUT ═══ -->
 <section class="page-hero">
-
-  <!-- Left: rotated label + article count -->
   <div class="hero-left">
     <span class="hero-issue-number">Archive · UnstableThoughts</span>
     <div class="hero-left-bottom">
@@ -683,7 +664,6 @@ footer {
     </div>
   </div>
 
-  <!-- Right: headline + desc -->
   <div class="hero-right">
     <div class="hero-ghost">All</div>
     <h1>Every word,<br><em>every question</em>,<br>in one place.</h1>
@@ -691,10 +671,8 @@ footer {
       Political philosophy, Indian politics, development, and social issues. Writing that refuses to look away.
     </p>
   </div>
-
 </section>
 
-<!-- ═══ FILTER BAR ═══ -->
 <div class="filter-bar reveal">
   <p class="filter-count"><strong>1</strong> article published</p>
   <div class="filter-pills">
@@ -705,9 +683,7 @@ footer {
   </div>
 </div>
 
-<!-- ═══ ARTICLE LIST ═══ -->
 <div class="article-list">
-
   <a href="The-real-reason-for-starting-unstablethoughts_ar=001" class="article-item reveal">
     <div class="article-main">
       <span class="article-tag">Opinion · India · Issue #001</span>
@@ -725,12 +701,8 @@ footer {
       </svg>
     </div>
   </a>
-
-  <!-- Add more articles above this line -->
-
 </div>
 
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-logo">UnstableThoughts.blog</div>
   <p class="footer-text">Asking the questions that make us uncomfortable.</p>
@@ -753,12 +725,17 @@ const MOON = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
 function setTheme(t) {
   html.setAttribute('data-theme', t);
   localStorage.setItem('theme', t);
-  themeIcon.innerHTML = t === 'dark' ? SUN : MOON;
-  themeLabel.textContent = t === 'dark' ? 'Dark' : 'Light';
+  // Show the icon of the state we ARE NOT currently in (the toggle target)
+  themeIcon.innerHTML = (t === 'dark') ? SUN : MOON;
+  themeLabel.textContent = (t === 'dark') ? 'Dark' : 'Light';
 }
+
 document.getElementById('darkToggle').addEventListener('click', () => {
-  setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  const current = html.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
 });
+
+// Init
 setTheme(localStorage.getItem('theme') || 'light');
 
 /* ── Scroll ── */
@@ -784,7 +761,7 @@ document.addEventListener('click', e => {
   if (!e.target.closest('#menuBtn') && !e.target.closest('#mobileMenu')) closeMenu();
 });
 
-/* ── Filter pills (visual only) ── */
+/* ── Filter pills ── */
 document.querySelectorAll('.filter-pill').forEach(pill => {
   pill.addEventListener('click', () => {
     document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
