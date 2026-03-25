@@ -1,176 +1,673 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - UnstableThoughts.blog</title>
+<title>About — UnstableThoughts.blog</title>
+<meta name="description" content="About UnstableThoughts — an independent writing platform focused on political philosophy, Indian politics, development, and social issues.">
+
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="canonical" href="https://unstablethoughts.blog/About-Untablethoughts-and-Author" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: "Georgia", serif;
+
+/* ════════════════════════════════════════
+   THEME VARIABLES
+════════════════════════════════════════ */
+:root, [data-theme="light"] {
+  --bg:              #f4f4f4;
+  --bg-nav:          rgba(255,255,255,0.2);
+  --bg-nav-scrolled: rgba(15,30,30,0.85);
+  --surface:         #ffffff;
+  --surface2:        #eeeae3;
+  --border:          rgba(255,255,255,0.4);
+  --border-solid:    rgba(29,43,43,0.12);
+  --text:            #1d2b2b;
+  --text-mid:        #444;
+  --text-muted:      #666;
+  --article-text:    #2b3a3a;
+  --toggle-bg:       #1d2b2b;
+  --toggle-color:    #f4f4f4;
+  --teal:            #4ca6a8;
+  --teal-dim:        rgba(76,166,168,0.12);
+  --card-bg:         #ffffff;
+  --transition:      0.4s ease;
 }
 
-body{
-    background:#f4f4f4;
-    color:#1d2b2b;
-    line-height:1.8;
+[data-theme="dark"] {
+  --bg:              #0f1e1e;
+  --bg-nav:          rgba(15,30,30,0.4);
+  --bg-nav-scrolled: rgba(5,10,10,0.92);
+  --surface:         #1a2e2e;
+  --surface2:        #162525;
+  --border:          rgba(255,255,255,0.08);
+  --border-solid:    rgba(255,255,255,0.1);
+  --text:            #e8e0d0;
+  --text-mid:        #b0a898;
+  --text-muted:      #8a9a9a;
+  --article-text:    #d4ccc0;
+  --toggle-bg:       #e8e0d0;
+  --toggle-color:    #0f1e1e;
+  --teal:            #5bbfc1;
+  --teal-dim:        rgba(91,191,193,0.1);
+  --card-bg:         #1a2e2e;
+  --transition:      0.4s ease;
 }
 
-/* ================= HEADER ================= */
+/* ════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-header{
-    width:100%;
-    padding:20px 8%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
-    transition:0.4s ease;
-
-    background:rgba(255,255,255,0.2);
-    backdrop-filter:blur(30px);
-    -webkit-backdrop-filter:blur(30px);
-    border-bottom:1px solid rgba(255,255,255,0.4);
+body {
+  font-family: 'Playfair Display', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
 }
 
-header.scrolled{
-    background:rgba(15,30,30,0.85);
+/* ════════════════════════════════════════
+   HEADER
+════════════════════════════════════════ */
+header {
+  width: 100%;
+  padding: 0 8%;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 1000;
+  background: var(--bg-nav);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition), box-shadow var(--transition);
 }
 
-header.scrolled .logo{
-    color:white;
+header.scrolled {
+  background: var(--bg-nav-scrolled);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+header.scrolled .logo            { color: #fff; }
+header.scrolled .nav-link        { color: rgba(255,255,255,0.7); }
+header.scrolled .nav-link:hover  { color: #fff; }
+header.scrolled .btn-theme       { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.8); }
+header.scrolled .btn-theme:hover { background: rgba(255,255,255,0.1); color: #fff; }
+header.scrolled .menu-btn span   { background: #fff; }
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color var(--transition);
 }
 
-.logo{
-    font-size:18px;
-    transition:0.3s;
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-/* ================= HERO ================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+}
+.nav-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  color: var(--text-mid);
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 50px;
+  transition: color 0.25s ease, background 0.25s ease;
+  white-space: nowrap;
+}
+.nav-link:hover { color: var(--text); background: var(--teal-dim); }
+.nav-link.active { color: var(--teal); }
 
-.hero{
-    padding:150px 8% 100px 8%;
-    max-width:900px;
+/* Theme toggle */
+.btn-theme {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border-solid);
+  border-radius: 50px;
+  padding: 7px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+  user-select: none;
+  margin-left: 8px;
+}
+.btn-theme:hover { background: var(--teal-dim); color: var(--text); }
+.btn-theme svg { flex-shrink: 0; transition: transform 0.5s ease; }
+[data-theme="dark"] .btn-theme svg { transform: rotate(180deg); }
+.theme-lbl { display: none; }
+@media (min-width: 520px) { .theme-lbl { display: inline; } }
+
+/* Hamburger */
+.menu-btn {
+  display: none;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 8px;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+.menu-btn span {
+  display: block;
+  width: 18px; height: 1.5px;
+  background: var(--text);
+  transition: transform 0.35s ease, opacity 0.2s ease;
+}
+.menu-btn.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menu-btn.active span:nth-child(2) { opacity: 0; }
+.menu-btn.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-solid);
+  padding: 12px 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  z-index: 999;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+.mobile-menu.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+.mobile-menu a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  text-decoration: none;
+  padding: 11px 14px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.mobile-menu a:hover { background: var(--teal-dim); color: var(--teal); }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .menu-btn  { display: flex; }
 }
 
-.hero h1{
-    font-size:52px;
-    font-weight:500;
-    margin-bottom:30px;
+/* ════════════════════════════════════════
+   READING PROGRESS
+════════════════════════════════════════ */
+.reading-progress {
+  position: fixed;
+  top: 68px; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--teal);
+  z-index: 998;
+  transition: width 0.1s linear;
 }
 
-.hero p{
-    font-size:22px;
-    color:#555;
-    max-width:700px;
+/* ════════════════════════════════════════
+   HERO / PAGE HEADER
+════════════════════════════════════════ */
+.page-hero {
+  padding: calc(68px + 80px) 8% 70px;
+  max-width: 860px;
+  position: relative;
 }
 
-/* ================= CONTENT ================= */
-
-.content{
-    padding:10px 8% 120px 8%;
-    max-width:900px;
+.page-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.05s;
+}
+.page-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--teal);
 }
 
-.content p{
-    font-size:20px;
-    margin-bottom:35px;
-    color:#2b3a3a;
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.15s;
 }
 
-.content p:first-letter{
-    font-size:42px;
-    float:left;
-    line-height:1;
-    padding-right:8px;
-    font-weight:500;
+.page-hero .lead {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.75;
+  max-width: 640px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.25s;
 }
 
-
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:768px){
-
-    .hero h1{
-        font-size:36px;
-    }
-
-    .hero p{
-        font-size:18px;
-    }
-
-    .content p{
-        font-size:18px;
-    }
+/* ════════════════════════════════════════
+   CONTENT BODY
+════════════════════════════════════════ */
+.content {
+  max-width: 860px;
+  padding: 0 8% 100px;
 }
 
-/* ================= IMAGE ================= */
+/* Section blocks */
+.about-section {
+  padding: 52px 0;
+  border-top: 1px solid var(--border-solid);
+}
+.about-section:first-child { border-top: none; }
 
-.image-section img{
-    width:100%;
-    display:block;
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 16px; height: 1px;
+  background: var(--teal);
 }
 
+.about-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.about-section p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 19px;
+  color: var(--article-text);
+  line-height: 1.9;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+  transition: color var(--transition);
+}
+.about-section p:last-child { margin-bottom: 0; }
+
+.about-section p strong {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Drop cap on first paragraph of first section */
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.2rem;
+  font-weight: 600;
+  float: left;
+  line-height: 0.78;
+  padding-right: 10px;
+  padding-top: 6px;
+  color: var(--teal);
+}
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--teal);
+  margin: 32px 0;
+  padding: 16px 0 16px 28px;
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.25rem !important;
+  font-style: italic;
+  color: var(--text) !important;
+  margin-bottom: 0 !important;
+  line-height: 1.6 !important;
+}
+
+/* Closing signature */
+.signature {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-solid);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+/* Email block */
+.email-block {
+  margin-top: 32px;
+  padding: 28px 32px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-solid);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  transition: background var(--transition), border-color var(--transition);
+}
+.email-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--teal-dim);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--teal);
+}
+.email-text {
+  flex: 1;
+}
+.email-text p {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--text-muted) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 4px !important;
+  letter-spacing: 0 !important;
+}
+.email-text a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--teal);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.email-text a:hover { opacity: 0.75; }
+
+/* ════════════════════════════════════════
+   BOTTOM IMAGE
+════════════════════════════════════════ */
+.image-section {
+  border-top: 1px solid var(--border-solid);
+}
+.image-section img {
+  width: 100%;
+  display: block;
+}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer {
+  padding: 36px 8%;
+  border-top: 1px solid var(--border-solid);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.footer-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.footer-nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.footer-nav a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-nav a:hover { color: var(--teal); }
+
+/* ════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 640px) {
+  header { padding: 0 5%; height: 60px; }
+  .mobile-menu { top: 60px; padding: 10px 5%; }
+  .reading-progress { top: 60px; }
+
+  .page-hero { padding: calc(60px + 60px) 5% 50px; }
+  .page-hero h1 { font-size: 2rem; }
+  .page-hero .lead { font-size: 16px; }
+
+  .content { padding: 0 5% 80px; }
+  .about-section { padding: 40px 0; }
+  .about-section h2 { font-size: 1.4rem; }
+  .about-section p { font-size: 17px; }
+  .drop-cap::first-letter { font-size: 3.2rem; }
+
+  .email-block { padding: 20px; gap: 14px; }
+  .pull-quote { padding-left: 18px; }
+
+  footer {
+    padding: 28px 5%;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .footer-nav { justify-content: center; }
+}
+
+@media (max-width: 380px) {
+  .page-hero h1 { font-size: 1.7rem; }
+  .logo { font-size: 14px; }
+}
 </style>
 </head>
-
 <body>
 
+<!-- Reading Progress -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- ═══ HEADER ═══ -->
 <header id="navbar">
-    <div class="logo">UnstableThoughts.blog</div>
+  <a href="/" class="logo">UnstableThoughts.blog</a>
+
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="About-Untablethoughts-and-Author" class="nav-link active">About</a></li>
+      <li><a href="Unstablethoughts-Article-library" class="nav-link">Articles</a></li>
+      <li><a href="/#connect" class="nav-link">Connect</a></li>
+    </ul>
+
+    <button class="btn-theme" id="darkToggle" aria-label="Toggle theme">
+      <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <span class="theme-lbl" id="themeLabel">Light</span>
+    </button>
+
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()" role="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
 </header>
 
-<section class="hero">
-    <h2>About This Platform</h2>
-    <br>
-    <p>UnstableThoughts is an independent writing platform focused on political philosophy, Indian politics, development, and social issues.</p>
-    <br>
-    <p>It values slow thinking, honest doubt, and perspectives that evolve rather than remain fixed.</p>
-    <br>
-    <h3>Why “Unstable”?</h3>
-    <p>Because ideas should never become inflexible. Here, instability represents intellectual honesty, openness, and continuous growth.</p>
-<br>
-    <h3>About the Author</h3>
-    <p>Hi, I am Abin.</p>
+<!-- Mobile nav -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="About-Untablethoughts-and-Author" onclick="closeMenu()">About</a>
+  <a href="Unstablethoughts-Article-library" onclick="closeMenu()">Articles</a>
+  <a href="/#connect" onclick="closeMenu()">Connect</a>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <span class="page-eyebrow">About</span>
+  <h1>The platform &amp; the person behind it.</h1>
+  <p class="lead">UnstableThoughts is an independent writing platform focused on political philosophy, Indian politics, development, and social issues.</p>
+</section>
+
+<!-- ═══ CONTENT ═══ -->
+<div class="content">
+
+  <!-- About the platform -->
+  <div class="about-section reveal">
+    <div class="section-label">The Platform</div>
+    <h2>About UnstableThoughts</h2>
+    <p class="drop-cap">UnstableThoughts is an independent writing platform focused on political philosophy, Indian politics, development, and social issues. It values slow thinking, honest doubt, and perspectives that evolve rather than remain fixed.</p>
+
+    <div class="pull-quote">
+      <p>Because ideas should never become inflexible. Here, instability represents intellectual honesty, openness, and continuous growth.</p>
+    </div>
+
+    <p>The name says it all. "Unstable" is not a flaw — it is a feature. Fixed ideas are fragile. Ideas that can be questioned, challenged, and rebuilt are the ones worth holding.</p>
+  </div>
+
+  <!-- About the author -->
+  <div class="about-section reveal">
+    <div class="section-label">The Author</div>
+    <h2>Hi, I am Abin.</h2>
     <p>On this website, I explore insights into political philosophy, Indian politics, development, and social issues.</p>
-    <p>Read with an open mind and form your own understanding of the truth.</p>
-    <p>There are many things in our country that need to change in order for us to grow.</p>
+    <p>Read with an open mind and form your own understanding of the truth. There are many things in our country that need to change in order for us to grow.</p>
     <p>I am an Indian who wants to see India become a developed nation and a better place to live.</p>
     <p>I assure you that the writing here is not biased toward any individual, political party, or organization.</p>
     <p>The goal is simple: to create a meaningful impact through honest and thoughtful writing.</p>
-    <p><strong>Jai Hind</strong></p>
+    <div class="signature">Jai Hind 🇮🇳</div>
+  </div>
 
-<br>
+  <!-- Contact -->
+  <div class="about-section reveal">
+    <div class="section-label">Get in Touch</div>
+    <h2>Want to connect or contribute?</h2>
+    <p>For more information, or if you'd like to be part of UnstableThoughts, feel free to reach out. All conversations are welcome.</p>
+    <div class="email-block">
+      <div class="email-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <div class="email-text">
+        <p>Reach out at</p>
+        <a href="mailto:unstablethoughtsindia@gmail.com">unstablethoughtsindia@gmail.com</a>
+      </div>
+    </div>
+  </div>
 
-    <h3>Email</h3>
-    <p>
-            For more information, or if you'd like to be part of UnstableThoughts,
-            feel free to reach out at
-            <a style="color: rgba(15,30,30,0.85);" href="mailto:unstablethoughtsindia@gmail.com">
-                unstablethoughtsindia@gmail.com
-            </a>
-    </p>
-</section>
+</div>
+
+<!-- ═══ BOTTOM IMAGE ═══ -->
 <section class="image-section">
-    <img src="unstableThoughts-image2.jpg" alt="About Image">
+  <img src="unstableThoughts-image2.jpg" alt="UnstableThoughts">
 </section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">UnstableThoughts.blog</div>
+  <p class="footer-text">Asking the questions that make us uncomfortable.</p>
+  <ul class="footer-nav">
+    <li><a href="About-Untablethoughts-and-Author">About</a></li>
+    <li><a href="Unstablethoughts-Article-library">Articles</a></li>
+    <li><a href="mailto:unstablethoughtsindia@gmail.com">Contact</a></li>
+  </ul>
+</footer>
 
 <script>
-window.addEventListener("scroll",function(){
-    const navbar=document.getElementById("navbar");
-    if(window.scrollY>50){
-        navbar.classList.add("scrolled");
-    }else{
-        navbar.classList.remove("scrolled");
-    }
+/* ── Theme ── */
+const html       = document.documentElement;
+const themeIcon  = document.getElementById('themeIcon');
+const themeLabel = document.getElementById('themeLabel');
+
+const SUN  = `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
+const MOON = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+
+function setTheme(t) {
+  html.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+  themeIcon.innerHTML = t === 'dark' ? SUN : MOON;
+  themeLabel.textContent = t === 'dark' ? 'Dark' : 'Light';
+}
+document.getElementById('darkToggle').addEventListener('click', () => {
+  setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
 });
-</script>
+setTheme(localStorage.getItem('theme') || 'light');
 
-</body>
-</html>
-
-
+/* ── Scroll ── */
+const navbar   = document.getElementById('navbar');
+const progress = document.getElementById('readingProgress');
+window.addEventListener('scroll', () => {
+  const 
