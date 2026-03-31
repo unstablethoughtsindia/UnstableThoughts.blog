@@ -260,14 +260,63 @@ header.scrolled .menu-btn span   { background: #fff; }
   padding: 13px 8%; /* tighter */
 
   background: transparent;
-  border-radius: 0;
+/* ==============================
+   MOBILE MENU — GLASS BASE
+============================== */
+.mobile-menu {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
 
-  border-bottom: 1px solid rgba(0,0,0,0.07);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
 
   opacity: 0;
-  transform: translateY(8px);
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: all 0.2s ease;
 
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  z-index: 999;
+
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Open */
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* ==============================
+   MENU ITEMS — ULTRA COMPACT
+============================== */
+.mobile-menu a {
+  font-family: 'Georgia', serif;
+  font-size: 18px; /* compact */
+
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+
+  padding: 10px 8%; /* tight spacing */
+
+  background: transparent;
+  border-radius: 0;
+
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+
+  opacity: 0;
+  transform: translateY(6px);
+
+  transition: color 0.15s ease, padding-left 0.15s ease;
 }
 
 /* Remove last divider */
@@ -278,24 +327,24 @@ header.scrolled .menu-btn span   { background: #fff; }
 /* Hover */
 .mobile-menu a:hover {
   color: #007aff;
-  padding-left: calc(8% + 4px);
+  padding-left: calc(8% + 3px);
 }
 
 /* ==============================
    STAGGER ANIMATION
 ============================== */
 .mobile-menu.open a {
-  animation: fadeSlideUp 0.38s ease forwards;
+  animation: fadeSlideUp 0.32s ease forwards;
 }
 
-.mobile-menu.open a:nth-child(1) { animation-delay: 0.04s; }
-.mobile-menu.open a:nth-child(2) { animation-delay: 0.09s; }
-.mobile-menu.open a:nth-child(3) { animation-delay: 0.14s; }
+.mobile-menu.open a:nth-child(1) { animation-delay: 0.03s; }
+.mobile-menu.open a:nth-child(2) { animation-delay: 0.07s; }
+.mobile-menu.open a:nth-child(3) { animation-delay: 0.11s; }
 
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -307,15 +356,15 @@ header.scrolled .menu-btn span   { background: #fff; }
    DARK MODE
 ============================== */
 [data-theme="dark"] .mobile-menu {
-  background: rgba(12, 12, 12, 0.82);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  background: rgba(12, 12, 12, 0.85);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 [data-theme="dark"] .mobile-menu a {
-  color: #f2f2f2;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  color: #f0f0f0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 [data-theme="dark"] .mobile-menu a:hover {
