@@ -275,7 +275,17 @@ header.scrolled .menu-btn span   { background: #fff; }
   background: rgba(255, 255, 255, 0.7);
   transform: scale(1.02);
 }
+/* === DARK MODE (put this at the bottom of your CSS) === */
+[data-theme="dark"] .mobile-menu {
+  background: rgba(20, 20, 20, 0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
+[data-theme="dark"] .mobile-menu a {
+  background: rgba(40, 40, 40, 0.5);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.08);
+}
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .menu-btn  { display: flex; }
