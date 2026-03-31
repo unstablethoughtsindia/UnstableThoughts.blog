@@ -214,30 +214,66 @@ header.scrolled .menu-btn span   { background: #fff; }
 /* Mobile dropdown */
 .mobile-menu {
   position: fixed;
-  top: 68px; left: 0; right: 0;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border-solid);
+  top: 68px;
+  left: 0;
+  right: 0;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.6); /* semi-transparent */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  /* Soft border like iOS */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
   padding: 12px 8%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
+
   opacity: 0;
   pointer-events: none;
   transform: translateY(-8px);
   transition: opacity 0.28s ease, transform 0.28s ease;
+
   z-index: 999;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+
+  /* Soft shadow */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
-.mobile-menu.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+/* Open state */
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* Menu items */
 .mobile-menu a {
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
-  background: var(--teal-dim);
-  color: var(--teal); 
+
+  /* Glass card effect */
+  background: rgba(255, 255, 255, 0.5);
+  color: #111;
+
   text-decoration: none;
   padding: 11px 14px;
-  border-radius: 8px;
-  transition: background 0.2s ease, color 0.2s ease;
+  border-radius: 12px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+/* Subtle hover (iOS feel) */
+.mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.02);
 }
 
 @media (max-width: 720px) {
