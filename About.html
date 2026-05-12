@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — UnstableThoughts</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #ffffff;
+      font-family: Instrument Serif;
+      font-weight: 300;
+      color: #1a1a0e;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Back button bar */
+    .top-bar {
+      padding: 16px 32px;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: #1a1a0e;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .back-btn:hover { opacity: 1; }
+
+    .back-btn svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* Page */
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 60px 32px 100px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: #1a1a0e;
+    }
+
+    h2 {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5a6600;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #2a2a18;
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.12);
+      margin: 40px 0;
+    }
+
+    .sign-off {
+      margin-top: 24px;
+      font-size: 0.95rem;
+      opacity: 0.75;
+    }
+
+    a {
+      color: #1a1a0e;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { opacity: 0.6; }
+
+    @media (max-width: 500px) {
+      .page { padding: 40px 20px 80px; }
+      .top-bar { padding: 14px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-bar">
+    <button class="back-btn" onclick="history.back()">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="10,3 5,8 10,13"/>
+      </svg>
+      Back
+    </button>
+  </nav>
+
+  <main class="page">
+
+    <h1>About UnstableThoughts</h1>
+
+    <p>UnstableThoughts is an independent writing platform focused on political philosophy, Indian politics, development, and social issues. It values slow thinking, honest doubt, and perspectives that evolve rather than remain fixed.</p>
+
+    <p>Because ideas should never become inflexible. Here, instability represents intellectual honesty, openness, and continuous growth.</p>
+
+    <p>The name says it all. "Unstable" is not a flaw — it is a feature. Fixed ideas are fragile. Ideas that can be questioned, challenged, and rebuilt are the ones worth holding.</p>
+
+    <hr class="divider"/>
+
+    <h2>The Founder</h2>
+
+    <p>Hi, I am Abin.</p>
+
+    <p>On this website, I explore insights into political philosophy, Indian politics, development, and social issues.</p>
+
+    <p>Read with an open mind and form your own understanding of the truth. There are many things in our country that need to change in order for us to grow.</p>
+
+    <p>I am an Indian who wants to see India become a developed nation and a better place to live.</p>
+
+    <p>I assure you that the writing here is not biased toward any individual, political party, or organization.</p>
+
+    <p>The goal is simple: to create a meaningful impact through honest and thoughtful writing.</p>
+
+    <p class="sign-off">Jai Hind</p>
+
+    <hr class="divider"/>
+
+    <h2>Get in Touch</h2>
+
+    <p>Want to connect or contribute? For more information, or if you'd like to be part of UnstableThoughts, feel free to reach out. All conversations are welcome.</p>
+
+    <p><a href="mailto:unstablethoughtsindia@gmail.com">unstablethoughtsindia@gmail.com</a></p>
+
+  </main>
+
+</body>
+</html>
