@@ -467,7 +467,15 @@
     margin-bottom: 36px;
     font-weight: 300;
   }
-  .substack-wrap { display: flex; justify-content: center; }
+  .substack-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .substack-wrap iframe {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  }
 
   /* ─── FOOTER ─── */
   footer {
@@ -580,12 +588,12 @@
       Home
       <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <a href="archive" class="drawer-item">
+    <a href="Archive" class="drawer-item">
       Archive
       <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <a href="about" class="drawer-item">
-      Q&amp;A
+    <a href="About" class="drawer-item">
+      About
       <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
     <a href="#newsletter" class="drawer-item" onclick="closeDrawer()">
@@ -659,14 +667,14 @@
     <p>One to three articles a week. Thoughtful, clear, and always free.</p>
     <div class="substack-wrap">
       <div style="width: 440px; height: 65px; overflow: hidden; position: relative;">
-        <iframe
-          src="https://unstablethoughts.substack.com/embed"
-          width="440"
-          height="200"
-          style="border: none; position: absolute; top: -60px; left: 0; background: #FAFAF8;"
-          frameborder="0"
-          scrolling="no">
-        </iframe>
+  <iframe 
+    src="https://unstablethoughts.substack.com/embed"
+    width="440"
+    height="200"
+    style="border: none; position: absolute; top: -60px; left: 0; background: #F0EDE6;"
+    frameborder="8"
+    scrolling="no">
+  </iframe>
       </div>
     </div>
   </div>
