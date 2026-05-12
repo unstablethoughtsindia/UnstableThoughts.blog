@@ -1,84 +1,74 @@
-/* ── Reading progress ── */
-const progressBar = document.getElementById('readingProgress');
-const navEl = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  const doc = document.documentElement;
-  const scrollTop = doc.scrollTop || document.body.scrollTop;
-  const scrollHeight = doc.scrollHeight - doc.clientHeight;
-  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-  progressBar.style.width = pct + '%';
-  if (scrollTop > 50) navEl.classList.add('scrolled');
-  else navEl.classList.remove('scrolled');
-});
-
-/* ── Theme ── */
-const html = document.documentElement;
-const themeIcon = document.getElementById('themeIcon');
-const themeLabel = document.getElementById('themeLabel');
-
-const SUN_PATH = `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
-const MOON_PATH = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
-
-function setTheme(t) {
-  html.setAttribute('data-theme', t);
-  localStorage.setItem('theme', t);
-  if (t === 'dark') {
-    themeIcon.innerHTML = SUN_PATH;
-    themeLabel.textContent = 'Dark';
-  } else {
-    themeIcon.innerHTML = MOON_PATH;
-    themeLabel.textContent = 'Light';
+function openDrawer() {
+    document.getElementById('drawer').classList.add('open');
+    document.getElementById('drawerOverlay').classList.add('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ document.getElementById('drawerCloseBtn').focus(); }, 100);
   }
-}
+  function closeDrawer() {
+    document.getElementById('drawer').classList.remove('open');
+    document.getElementById('drawerOverlay').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+    document.getElementById('hamburger').focus();
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDrawer(); });
 
-document.getElementById('darkToggle').addEventListener('click', () => {
-  setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-});
+  // ── Share helpers ────────────────────────────────────────────────
+  var SHARE_TITLE = 'The real reason for starting UnstableThoughts and why silence is no longer an option.';
 
-setTheme(localStorage.getItem('theme') || 'light');
+  function getShareURL() {
+    // Prefer the canonical OG URL if available, fall back to current page
+    var canonical = document.querySelector('meta[property="og:url"]');
+    return canonical ? canonical.getAttribute('content') : window.location.href;
+  }
 
-/* ── Share dropdown ── */
-const shareBtn = document.getElementById('shareBtn');
-const shareDropdown = document.getElementById('shareDropdown');
+  function initShareButtons() {
+    var url        = encodeURIComponent(getShareURL());
+    var title      = encodeURIComponent(SHARE_TITLE);
 
-shareBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  shareDropdown.classList.toggle('open');
-});
-document.addEventListener('click', () => shareDropdown.classList.remove('open'));
-shareDropdown.addEventListener('click', e => e.stopPropagation());
+    // X / Twitter
+    var xBtn = document.querySelector('.share-btn[title="Share on X"]');
+    if (xBtn) {
+      xBtn.href = 'https://x.com/intent/tweet?url=' + url + '&text=' + title;
+      xBtn.target = '_blank';
+      xBtn.rel    = 'noopener noreferrer';
+    }
 
-/* ── Share actions ── */
-const PAGE_URL = 'https://unstablethoughts.blog/The-real-reason-for-starting-unstablethoughts_ar=001';
-const PAGE_TITLE = 'The Question: Why? - UnstableThoughts: ';
+    // LinkedIn
+    var liBtn = document.querySelector('.share-btn[title="Share on LinkedIn"]');
+    if (liBtn) {
+      liBtn.href   = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+      liBtn.target = '_blank';
+      liBtn.rel    = 'noopener noreferrer';
+    }
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2400);
-}
+    // Email — rebuild with the real URL in the body
+    var emailBtn = document.querySelector('.share-btn[title="Share via Email"]');
+    if (emailBtn) {
+      var subject = encodeURIComponent('UnstableThoughts: The Question — Why?');
+      var body    = encodeURIComponent('Thought you might find this interesting:\n\n' + getShareURL());
+      emailBtn.href = 'mailto:?subject=' + subject + '&body=' + body;
+    }
+  }
 
-function copyLink() {
-  navigator.clipboard.writeText(PAGE_URL).then(() => showToast('Link copied to clipboard'));
-  shareDropdown.classList.remove('open');
-}
-function shareToX() {
-  window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(PAGE_URL)}&text=${encodeURIComponent(PAGE_TITLE)}`, '_blank');
-  shareDropdown.classList.remove('open');
-}
-function shareToLinkedIn() {
-  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(PAGE_URL)}`, '_blank');
-  shareDropdown.classList.remove('open');
-}
-function shareToWhatsApp() {
-  window.open(`https://wa.me/?text=${encodeURIComponent(PAGE_TITLE + ' ' + PAGE_URL)}`, '_blank');
-  shareDropdown.classList.remove('open');
-}
+  // Run once the page is ready
+  document.addEventListener('DOMContentLoaded', initShareButtons);
+  // ────────────────────────────────────────────────────────────────
 
-/* ── Native share fallback ── */
-if (navigator.share) {
-  shareBtn.addEventListener('dblclick', () => {
-    navigator.share({ title: PAGE_TITLE, url: PAGE_URL });
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(function(){
+      var btn = document.getElementById('copyBtn');
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;"><path d="M20 6L9 17l-5-5"/></svg>Copied!';
+      setTimeout(function(){
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>Copy link';
+      }, 2000);
+    });
+  }
+
+  window.addEventListener('scroll', function(){
+    var p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('progressBar').style.width = p + '%';
   });
-}
