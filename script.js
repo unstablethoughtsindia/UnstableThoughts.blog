@@ -88,7 +88,13 @@ function openDrawer() {
 
 // for twitter/x
 
- const shareX = document.getElementById('shareX');
-  const pageUrl = encodeURIComponent(window.location.href);
-  const pageTitle = encodeURIComponent(document.title);
-  shareX.href = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+  function shareOnX(e) {
+    e.preventDefault();
+    const url   = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    window.open(
+      'https://x.com/intent/tweet?url=' + url + '&text=' + title,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  }
