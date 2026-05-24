@@ -13,7 +13,7 @@
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Archive — UnstableThoughts</title>
+<title>Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -199,35 +199,6 @@
   }
   .drawer-social a:hover { opacity: 1; }
 
-  /* ─── PAGE HEADER ─── */
-  .archive-header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 72px 24px 56px;
-    border-bottom: 1px solid var(--border);
-  }
-  .archive-eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 20px;
-  }
-  .archive-header h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(42px, 7vw, 76px);
-    line-height: 1.0;
-    letter-spacing: -2px;
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
-  .archive-header h1 em { font-style: italic; color: var(--muted); }
-  .archive-meta {
-    font-size: 15px;
-    color: var(--muted);
-    font-weight: 300;
-  }
 
   /* ─── CONTROLS BAR ─── */
   .controls-bar {
@@ -267,7 +238,7 @@
 
   /* ─── RESULTS COUNT ─── */
   .results-bar {
-    max-width: 1200px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 20px 24px 0;
     display: flex;
@@ -283,116 +254,94 @@
   }
   #results-num { color: var(--text); font-weight: 700; }
 
-  /* ─── YEAR GROUP ─── */
-  .year-group {
-    max-width: 1200px;
+  /* ─── YEAR GROUP (unused — kept for safety) ─── */
+  .year-group { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .year-label { display: none; }
+
+  /* ─── ARTICLE LIST (Wired-style) ─── */
+  #archive-content {
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 24px;
   }
-  .year-label {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(52px, 8vw, 96px);
-    font-weight: 400;
-    letter-spacing: -3px;
-    color: var(--border);
-    line-height: 1;
-    padding-top: 40px;
-    padding-bottom: 8px;
-    user-select: none;
-    transition: color 0.2s;
-  }
-  .year-group:hover .year-label { color: #C8C4BC; }
-
-  /* ─── ARTICLE LIST ─── */
   .article-list { margin: 0; }
 
   .article-card {
-    display: grid;
-    grid-template-columns: 80px 1fr 52px;
-    align-items: start;
-    gap: 24px;
-    padding: 32px 0;
-    border-bottom: 1px solid var(--border);
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 20px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: none;
     text-decoration: none;
     color: inherit;
-    transition: opacity 0.2s;
+    transition: opacity 0.18s;
   }
-  .article-card:hover { opacity: 0.65; }
+  .article-list:last-child .article-card:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .article-card:hover { opacity: 0.72; }
 
-  .article-date-col {
-    padding-top: 3px;
-  }
-  .article-date-day {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: -1px;
-    line-height: 1;
-    color: var(--text);
-  }
-  .article-date-mon {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-
-  .article-card-body { flex: 1; }
-  .article-tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: 1px solid var(--text);
-    border-radius: 100px;
-    padding: 4px 12px;
-    margin-bottom: 12px;
-  }
-  .article-card h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(20px, 3vw, 30px);
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-    font-weight: 400;
-    margin-bottom: 10px;
-  }
-  .article-card p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.65;
-    max-width: 580px;
-    font-weight: 300;
-  }
-  .article-read-time {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 12px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #AAA;
-  }
-  .article-read-time svg { width: 12px; height: 12px; }
-
-  .article-arrow {
-    flex-shrink: 0;
-    width: 52px;
-    height: 52px;
-    border: 1.5px solid var(--text);
-    border-radius: 50%;
+  /* Text body — left side */
+  .article-card-body {
+    flex: 1;
+    min-width: 0;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 2px;
-    transition: background 0.2s;
   }
-  .article-card:hover .article-arrow { background: var(--text); }
-  .article-card:hover .article-arrow path { stroke: var(--bg); }
+
+  /* Category eyebrow */
+  .article-tag {
+    display: block !important;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    color: var(--muted) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 7px !important;
+    background: none !important;
+  }
+
+  /* Bold black headline */
+  .article-card h2 {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: clamp(17px, 2.2vw, 24px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.3px !important;
+    font-weight: 800 !important;
+    color: var(--text) !important;
+    margin: 0 !important;
+  }
+
+  /* Hide excerpt + read-time for clean scannable look */
+  .article-card p { display: none !important; }
+  .article-read-time { display: none !important; }
+
+  /* Hide old date column & arrow */
+  .article-date-col { display: none !important; }
+  .article-arrow { display: none !important; }
+
+  /* Thumbnail — right side */
+  .article-thumb {
+    flex-shrink: 0;
+    width: 130px;
+    height: 88px;
+    overflow: hidden;
+    background: var(--border);
+  }
+  .article-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .article-thumb svg { display: block; }
 
   /* ─── EMPTY STATE ─── */
   .empty-state {
@@ -540,24 +489,17 @@
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .article-card {
-    animation: fadeUp 0.4s ease both;
-  }
+  .article-card { animation: fadeUp 0.4s ease both; }
 
   /* ─── MOBILE ─── */
   @media (max-width: 600px) {
     .archive-header { padding: 48px 20px 40px; }
     .controls-bar { padding: 20px; gap: 12px; }
-    .search-wrap { max-width: 100%; }
     .sort-wrap { margin-left: 0; }
     .year-group { padding: 0 20px; }
-    .article-card {
-      grid-template-columns: 56px 1fr 40px;
-      gap: 12px;
-      padding: 24px 0;
-    }
-    .article-date-day { font-size: 22px; }
-    .article-arrow { width: 40px; height: 40px; }
+    .article-card { gap: 14px; padding: 20px 0; }
+    .article-thumb { width: 90px; height: 66px; }
+    .article-card h2 { font-size: 15px !important; }
     .load-more-wrap { padding: 36px 20px 60px; }
     .newsletter-inner { padding: 60px 20px; }
     footer { padding: 48px 20px 32px; }
@@ -624,12 +566,6 @@
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
-<div class="archive-header">
-  <p class="archive-eyebrow">Every piece, every thought</p>
-  <h1>The <em>Archive.</em></h1>
-  <p class="archive-meta">All articles, sorted by date. Filter by topic or search by keyword.</p>
-</div>
 
 <!-- CONTROLS -->
 <div class="controls-bar">
@@ -644,6 +580,7 @@
 <!-- RESULTS COUNT -->
 <div class="results-bar">
   <p class="results-count"><span id="results-num">—</span> Articles</p>
+<br> </br>
 </div>
 
 <!-- ARTICLE CONTENT (rendered by JS) -->
@@ -724,12 +661,13 @@
   const ARTICLES = [
     {
       id: 1,
-      title: "The Question: Why?",
+      title: "The Question: Why?<br> [The real reason for starting UnstableThoughts and why silence is no longer an option.]",
       excerpt: "The real reason for starting UnstableThoughts and why silence is no longer an option.",
       category: "The Beginning",
       date: "07-03-2026",
       readTime: 2,
-      url: "The-real-reason-for-starting-unstablethoughts_ar=001"
+      url: "The-real-reason-for-starting-unstablethoughts_ar=001",
+      image: "https://lh3.googleusercontent.com/d/1doKElgTD0fkULgtAgjYXCOMVNd9jr3BJ"  
     },
 
   ];
@@ -770,62 +708,38 @@
 
   function renderMore() {
     const content = document.getElementById('archive-content');
-    const batch   = visibleArticles.slice(renderedCount, renderedCount + PAGE_SIZE);
+
+    // Ensure a single flat list container exists
+    let list = content.querySelector('.article-list');
+    if (!list) {
+      list = document.createElement('div');
+      list.className = 'article-list';
+      content.appendChild(list);
+    }
+
+    const batch = visibleArticles.slice(renderedCount, renderedCount + PAGE_SIZE);
     renderedCount += batch.length;
 
-    // Group by year
-    const yearGroups = {};
-    batch.forEach(a => {
-      const y = formatYear(a.date);
-      if (!yearGroups[y]) yearGroups[y] = [];
-      yearGroups[y].push(a);
-    });
+    batch.forEach((a, idx) => {
+      const card = document.createElement('a');
+      card.href = a.url;
+      card.className = 'article-card';
+      card.dataset.id = a.id;
+      card.style.animationDelay = `${idx * 40}ms`;
 
-    const sort = document.getElementById('sortSelect').value;
-    const years = Object.keys(yearGroups).sort((a,b) => sort === 'oldest' ? a - b : b - a);
+      // Use article image if provided, else a solid colour swatch
+      const thumbInner = a.image
+        ? `<img src="${a.image}" alt="" loading="lazy">`
+        : `<div style="width:100%;height:100%;background:#C8C4BC;"></div>`;
 
-    years.forEach(year => {
-      // Find or create year group
-      let yg = content.querySelector(`.year-group[data-year="${year}"]`);
-      if (!yg) {
-        yg = document.createElement('div');
-        yg.className = 'year-group';
-        yg.dataset.year = year;
-        yg.innerHTML = `
-          <div class="year-label">${year}</div>
-          <div class="article-list"></div>
-        `;
-        content.appendChild(yg);
-      }
-      const list = yg.querySelector('.article-list');
-      yearGroups[year].forEach((a, idx) => {
-        const card = document.createElement('a');
-        card.href = a.url;
-        card.className = 'article-card';
-        card.dataset.id = a.id;
-        card.style.animationDelay = `${idx * 40}ms`;
-        card.innerHTML = `
-          <div class="article-date-col">
-            <div class="article-date-day">${formatDay(a.date)}</div>
-            <div class="article-date-mon">${formatMonth(a.date)}</div>
-          </div>
-          <div class="article-card-body">
-            <span class="article-tag">${a.category}</span>
-            <h2>${a.title}</h2>
-            <p>${a.excerpt}</p>
-            <span class="article-read-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              ${a.readTime} min read
-            </span>
-          </div>
-          <div class="article-arrow">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        `;
-        list.appendChild(card);
-      });
+      card.innerHTML = `
+        <div class="article-card-body">
+          <span class="article-tag">${a.category}</span>
+          <h2>${a.title}</h2>
+        </div>
+        <div class="article-thumb">${thumbInner}</div>
+      `;
+      list.appendChild(card);
     });
 
     // Empty state
