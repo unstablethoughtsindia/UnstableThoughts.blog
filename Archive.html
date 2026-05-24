@@ -200,196 +200,242 @@
   .drawer-social a:hover { opacity: 1; }
 
 
+  /* ─── ARCHIVE SECTION WRAPPER (dark) ─── */
+  .archive-section {
+    background: #0f0f0f;
+  }
+
   /* ─── CONTROLS BAR ─── */
   .controls-bar {
-    max-width: 1200px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 28px 24px;
+    padding: 18px 24px;
     display: flex;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid #2a2a2a;
+    background: #0f0f0f;
   }
+
+  /* Results count inline */
+  .results-count {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #666;
+  }
+  #results-num { color: #fff; }
 
   /* Sort */
   .sort-wrap { margin-left: auto; }
   .sort-select {
     font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 10px 36px 10px 16px;
-    border: 1px solid var(--border);
+    padding: 9px 36px 9px 16px;
+    border: 1px solid #333;
     border-radius: 100px;
-    background: var(--bg-white);
-    color: var(--text);
+    background: #1a1a1a;
+    color: #fff;
     outline: none;
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230A0A0A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
     transition: border-color 0.2s;
   }
-  .sort-select:focus { border-color: var(--text); }
+  .sort-select:focus { border-color: #fff; }
 
-  /* ─── RESULTS COUNT ─── */
-  .results-bar {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 20px 24px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .results-count {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  #results-num { color: var(--text); font-weight: 700; }
+  /* ─── RESULTS BAR (hidden) ─── */
+  .results-bar { display: none; }
 
-  /* ─── YEAR GROUP (unused — kept for safety) ─── */
+  /* ─── YEAR GROUP ─── */
   .year-group { max-width: 760px; margin: 0 auto; padding: 0 24px; }
   .year-label { display: none; }
 
-  /* ─── ARTICLE LIST (Wired-style) ─── */
+  /* ─── ARTICLE LIST ─── */
   #archive-content {
     max-width: 760px;
     margin: 0 auto;
     padding: 0 24px;
+    background: #0f0f0f;
   }
   .article-list { margin: 0; }
 
+  /* ── Card: Every layout — image left, content right ── */
   .article-card {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
-    gap: 20px;
-    padding: 24px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: none;
-    text-decoration: none;
-    color: inherit;
+    gap: 24px !important;
+    padding: 32px 0 !important;
+    border-top: none !important;
+    border-bottom: 1px dashed #2e2e2e !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    cursor: pointer;
+    background: #0f0f0f;
     transition: opacity 0.18s;
   }
-  .article-list:last-child .article-card:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-  .article-card:hover { opacity: 0.72; }
+  .article-card:first-child { border-top: 1px dashed #2e2e2e !important; }
+  .article-card:hover { opacity: 0.82; }
 
-  /* Text body — left side */
-  .article-card-body {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  /* Thumbnail — LEFT, taller portrait crop */
+  .article-thumb {
+    flex-shrink: 0 !important;
+    width: 160px !important;
+    height: 120px !important;
+    overflow: hidden !important;
+    background: #1e1e1e !important;
+    align-self: flex-start !important;
   }
-
-  /* Category eyebrow */
-  .article-tag {
+  .article-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
     display: block !important;
+    transition: transform 0.4s ease !important;
+  }
+  .article-card:hover .article-thumb img { transform: scale(1.04) !important; }
+  .article-thumb svg { display: block; }
+
+  /* Text body — right side */
+  .article-card-body {
+    flex: 1 !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+  }
+
+  /* Date — small caps, muted, above headline */
+  .article-date {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.16em !important;
-    text-transform: uppercase !important;
-    color: var(--muted) !important;
-    border: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    margin-bottom: 7px !important;
-    background: none !important;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+    display: block;
   }
 
-  /* Bold black headline */
+  /* Headline — large serif, italic drop-cap on first letter */
   .article-card h2 {
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: clamp(17px, 2.2vw, 24px) !important;
-    line-height: 1.18 !important;
-    letter-spacing: -0.3px !important;
-    font-weight: 800 !important;
-    color: var(--text) !important;
-    margin: 0 !important;
+    font-family: 'DM Serif Display', serif !important;
+    font-size: clamp(22px, 3vw, 32px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.5px !important;
+    font-weight: 400 !important;
+    color: #f0ede6 !important;
+    margin: 0 0 12px !important;
+  }
+  /* italic drop-cap: wrap first letter in <em class="drop"> via JS */
+  .article-card h2 .drop {
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
   }
 
-  /* Hide excerpt + read-time for clean scannable look */
-  .article-card p { display: none !important; }
-  .article-read-time { display: none !important; }
+  /* Excerpt */
+  .article-excerpt {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+    color: #aaa !important;
+    line-height: 1.55 !important;
+    margin: 0 0 16px !important;
+    display: block !important;
+  }
 
-  /* Hide old date column & arrow */
+  /* Author row */
+  .article-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .article-author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  .article-author-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  /* Suppress tag and old elements */
+  .article-tag { display: none !important; }
+  .article-meta { display: none !important; }
+  .article-card p:not(.article-excerpt) { display: none !important; }
+  .article-read-time { display: none !important; }
   .article-date-col { display: none !important; }
   .article-arrow { display: none !important; }
 
-  /* Thumbnail — right side */
-  .article-thumb {
-    flex-shrink: 0;
-    width: 130px;
-    height: 88px;
-    overflow: hidden;
-    background: var(--border);
-  }
-  .article-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .article-thumb svg { display: block; }
-
   /* ─── EMPTY STATE ─── */
   .empty-state {
-    max-width: 1200px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 80px 24px;
+    padding: 100px 24px;
     text-align: center;
     display: none;
+    background: #0f0f0f;
   }
   .empty-state.visible { display: block; }
   .empty-state h3 {
     font-family: 'DM Serif Display', serif;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 400;
     letter-spacing: -0.5px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    color: #f0ede6;
   }
-  .empty-state p { font-size: 15px; color: var(--muted); font-weight: 300; }
+  .empty-state p { font-size: 15px; color: #666; font-weight: 300; }
 
   /* ─── LOAD MORE ─── */
   .load-more-wrap {
-    max-width: 1200px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 48px 24px 80px;
     display: flex;
     justify-content: center;
+    background: #0f0f0f;
   }
   .load-more-btn {
     font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text);
+    color: #f0ede6;
     background: none;
-    border: 1.5px solid var(--text);
-    padding: 14px 36px;
+    border: 1.5px solid #444;
+    padding: 14px 40px;
     border-radius: 100px;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.22s, color 0.22s, border-color 0.22s;
   }
-  .load-more-btn:hover { background: var(--text); color: var(--bg); }
-  .load-more-btn:disabled {
-    opacity: 0.35;
-    cursor: default;
-    background: none;
-    color: var(--text);
-  }
+  .load-more-btn:hover { background: #f0ede6; color: #0f0f0f; border-color: #f0ede6; }
+  .load-more-btn:disabled { opacity: 0.3; cursor: default; background: none; }
 
   /* ─── NEWSLETTER ─── */
   .newsletter {
@@ -481,25 +527,26 @@
   .footer-copy { font-size: 12px; color: #ffffff; }
 
   /* ─── HIDDEN / FILTERED ─── */
-  .article-card.hidden { display: none; }
+  .article-card.hidden { display: none !important; }
   .year-group.hidden { display: none; }
 
   /* ─── ANIMATIONS ─── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .article-card { animation: fadeUp 0.4s ease both; }
+  .article-card { animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
   /* ─── MOBILE ─── */
   @media (max-width: 600px) {
-    .archive-header { padding: 48px 20px 40px; }
-    .controls-bar { padding: 20px; gap: 12px; }
+    .controls-bar { padding: 14px 20px; gap: 10px; }
     .sort-wrap { margin-left: 0; }
     .year-group { padding: 0 20px; }
-    .article-card { gap: 14px; padding: 20px 0; }
-    .article-thumb { width: 90px; height: 66px; }
-    .article-card h2 { font-size: 15px !important; }
+    #archive-content { padding: 0 20px; }
+    .article-card { gap: 16px !important; padding: 24px 0 !important; }
+    .article-thumb { width: 110px !important; height: 90px !important; }
+    .article-card h2 { font-size: 20px !important; }
+    .article-excerpt { font-size: 13px !important; }
     .load-more-wrap { padding: 36px 20px 60px; }
     .newsletter-inner { padding: 60px 20px; }
     footer { padding: 48px 20px 32px; }
@@ -507,7 +554,7 @@
     .nav-drawer { padding: 0 24px 32px; }
     .drawer-topbar { margin: 0 -24px; padding: 0 24px; }
     .drawer-item { font-size: 22px; }
-    .results-bar { padding: 16px 20px 0; }
+    .results-bar { display: none; }
   }
 </style>
 </head>
@@ -567,8 +614,11 @@
 </nav>
 
 
+<div class="archive-section">
+
 <!-- CONTROLS -->
 <div class="controls-bar">
+  <p class="results-count"><span id="results-num">—</span> Articles</p>
   <div class="sort-wrap">
     <select class="sort-select" id="sortSelect" aria-label="Sort articles">
       <option value="newest">Newest First</option>
@@ -577,10 +627,9 @@
   </div>
 </div>
 
-<!-- RESULTS COUNT -->
-<div class="results-bar">
-  <p class="results-count"><span id="results-num">—</span> Articles</p>
-<br> </br>
+<!-- RESULTS COUNT (hidden) -->
+<div class="results-bar" style="display:none;">
+  <p class="results-count"><span id="results-num-hidden">—</span> Articles</p>
 </div>
 
 <!-- ARTICLE CONTENT (rendered by JS) -->
@@ -596,6 +645,8 @@
 <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
   <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">Load more articles</button>
 </div>
+
+</div><!-- /archive-section -->
 
 <!-- NEWSLETTER -->
 <section class="newsletter" id="newsletter">
@@ -661,11 +712,12 @@
   const ARTICLES = [
     {
       id: 1,
-      title: "The Question: Why?<br> [The real reason for starting UnstableThoughts and why silence is no longer an option.]",
+      title: "The Question: Why?",
       excerpt: "The real reason for starting UnstableThoughts and why silence is no longer an option.",
       category: "The Beginning",
       date: "07-03-2026",
       readTime: 2,
+      author: "UnstableThoughts",
       url: "The-real-reason-for-starting-unstablethoughts_ar=001",
       image: "https://lh3.googleusercontent.com/d/1doKElgTD0fkULgtAgjYXCOMVNd9jr3BJ"  
     },
@@ -680,13 +732,14 @@
   const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
   function parseDate(str) {
-    const [y, m, d] = str.split('-').map(Number);
+    // Format: DD-MM-YYYY
+    const [d, m, y] = str.split('-').map(Number);
     return new Date(y, m - 1, d);
   }
 
-  function formatDay(str)   { return str.split('-')[2].replace(/^0/, ''); }
+  function formatDay(str)   { return str.split('-')[0].replace(/^0/, ''); }
   function formatMonth(str) { return months[parseInt(str.split('-')[1]) - 1]; }
-  function formatYear(str)  { return str.split('-')[0]; }
+  function formatYear(str)  { return str.split('-')[2]; }
 
   /* ─── SORTING ─── */
   function getFiltered() {
@@ -727,17 +780,40 @@
       card.dataset.id = a.id;
       card.style.animationDelay = `${idx * 40}ms`;
 
-      // Use article image if provided, else a solid colour swatch
+      // Use article image if provided, else a dark swatch
       const thumbInner = a.image
         ? `<img src="${a.image}" alt="" loading="lazy">`
-        : `<div style="width:100%;height:100%;background:#C8C4BC;"></div>`;
+        : `<div style="width:100%;height:100%;background:#2a2a2a;"></div>`;
+
+      // Format date (DD-MM-YYYY)
+      const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const dp = a.date.split('-');
+      const formattedDate = `${MONTHS[parseInt(dp[1])-1]} ${parseInt(dp[0])}, ${dp[2]}`;
+
+      // Drop-cap: italicise the first letter of the headline
+      const rawTitle = a.title || '';
+      const titleWithDrop = rawTitle.length > 0
+        ? `<em class="drop">${rawTitle[0]}</em>${rawTitle.slice(1)}`
+        : rawTitle;
+
+      // Author initials for avatar fallback
+      const initials = (a.author || 'U').split(' ').map(w => w[0]).join('').slice(0,2);
+
+      const avatarInner = a.authorImage
+        ? `<img src="${a.authorImage}" alt="" style="width:100%;height:100%;object-fit:cover;">`
+        : initials;
 
       card.innerHTML = `
-        <div class="article-card-body">
-          <span class="article-tag">${a.category}</span>
-          <h2>${a.title}</h2>
-        </div>
         <div class="article-thumb">${thumbInner}</div>
+        <div class="article-card-body">
+          <span class="article-date">${formattedDate}</span>
+          <h2>${titleWithDrop}</h2>
+          ${a.excerpt ? `<span class="article-excerpt">${a.excerpt}</span>` : ''}
+          <div class="article-author">
+            <div class="article-author-avatar">${avatarInner}</div>
+            <span class="article-author-name">${a.author || 'UnstableThoughts'}</span>
+          </div>
+        </div>
       `;
       list.appendChild(card);
     });
