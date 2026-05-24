@@ -342,7 +342,7 @@
   .article-prose p {
     font-family: Georgia, serif;
     /* fluid: comfortable on mobile (16px) → desktop (19px) */
-    font-size: clamp(16px, 1.2vw + 0.6rem, 19px);
+    font-size: clamp(17px, 1.2vw + 0.6rem, 19px);
     line-height: 1.9;
     color: #1c1c1c;
     margin-bottom: 1.4em;
