@@ -72,3 +72,16 @@ function openDrawer() {
     var p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
     document.getElementById('progressBar').style.width = p + '%';
   });
+
+  // share button 
+
+  async function shareArticle() {
+  const url = window.location.href;
+  const title = document.title;
+  if (navigator.share) {
+    try { await navigator.share({ title, url }); }
+    catch(e) { if (e.name !== 'AbortError') navigator.clipboard.writeText(url); }
+  } else {
+    navigator.clipboard.writeText(url);
+  }
+}
