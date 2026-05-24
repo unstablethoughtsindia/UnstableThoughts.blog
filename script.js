@@ -86,15 +86,3 @@ function openDrawer() {
   }
 }
 
-// for twitter/x
-
-  function shareOnX(e) {
-    e.preventDefault();
-    const url   = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(document.title);
-    window.open(
-      'https://x.com/intent/tweet?url=' + url + '&text=' + title,
-      '_blank',
-      'noopener,noreferrer'
-    );
-  }
