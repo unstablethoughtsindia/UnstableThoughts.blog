@@ -63,7 +63,7 @@
     flex-shrink: 0;
   }
   .nav-logo {
-    font-family: "DM Serif Display", serif;
+    font-family: 'inter';
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: -0.5px;
@@ -71,7 +71,7 @@
     color: var(--text);
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 6px;
   }
   .nav-right { margin-left: auto; }
   .nav-cta {
@@ -268,8 +268,8 @@
     padding: 0 14px;
     border: 1px solid var(--border);
     border-radius: 100px;
-    background: var(--bg-white);
-    color: var(--text);
+    background: black;
+    color: white;
     text-decoration: none;
     cursor: pointer;
     font-family: var(--prose-font);
@@ -279,12 +279,6 @@
     white-space: nowrap;
     transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s;
     flex-shrink: 0;
-  }
-  .share-btn:hover {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--bg);
-    transform: translateY(-1px);
   }
   .share-btn:hover svg { stroke: var(--bg); }
   .share-btn:active { transform: translateY(0); }
@@ -472,13 +466,14 @@
   .footer-links a {
     color: var(--footer-text);
     text-decoration: none;
+    font-family: 'inter';
     font-size: 16px; font-weight: 700;
     letter-spacing: -0.3px;
     transition: opacity 0.2s;
   }
   .footer-links a:hover { opacity: 0.4; }
   .footer-logo {
-    font-family: "DM Serif Display", serif;
+    font-family: 'inter';
     font-weight: 700; font-size: 1.4rem;
     color: white; padding: 8px;
   }
