@@ -82,7 +82,18 @@
   <span class="share-bar-label">Share</span>
 
 <!-- X / Twitter -->
-<a class="share-btn" id="shareX" href="#" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+<a
+  class="share-btn"
+  href="https://x.com/intent/tweet?url="
+  onclick="
+    event.preventDefault();
+    window.open(
+      'https://x.com/intent/tweet?url=' + encodeURIComponent(window.location.href) +
+      '&text=' + encodeURIComponent(document.title),
+      '_blank'
+    );
+  "
+>
   X
 </a>
 
