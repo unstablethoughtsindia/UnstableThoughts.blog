@@ -1,517 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZGQK3S0HE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YZGQK3S0HE');
-</script>
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Archive</title>
+<meta property="og:url" content="https://unstablethoughts.blog/The-real-reason-for-starting-unstablethoughts_ar=001" />
+  <meta property="og:title" content="The real reason for starting UnstableThoughts and why silence is no longer an option." />
+<title>UnstableThoughts - The Question: Why?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-
-<style>
-  :root {
-    --bg: #F0EDE6;
-    --bg-white: #FAFAF8;
-    --text: #0A0A0A;
-    --muted: #666;
-    --border: #D8D4CC;
-    --footer-bg: #0A0A0A;
-    --footer-text: #FAFAF8;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    height: 64px;
-    display: flex;
-    align-items: center;
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .nav-hamburger {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 38px;
-    height: 38px;
-    background: none;
-    border: none;
-    padding: 8px 6px;
-    flex-shrink: 0;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--text);
-  }
-  .nav-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--border);
-    margin: 0 20px;
-    flex-shrink: 0;
-  }
-  .nav-logo {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-logo .logo-asterisk { color: red; font-size: 1.6rem; line-height: 1; }
-  .nav-right { margin-left: auto; }
-  .nav-cta {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text);
-    text-decoration: none;
-    border: 1px solid var(--text);
-    padding: 8px 18px;
-    border-radius: 100px;
-    transition: background 0.2s, color 0.2s;
-    white-space: nowrap;
-  }
-  .nav-cta:hover { background: var(--text); color: var(--bg); }
-
-  /* ─── DRAWER ─── */
-  .drawer-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-    z-index: 200;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-  }
-  .drawer-overlay.open { opacity: 1; pointer-events: all; }
-
-  .nav-drawer {
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    width: min(420px, 100vw);
-    background: #fff;
-    z-index: 201;
-    display: flex;
-    flex-direction: column;
-    padding: 0 40px 40px;
-    transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
-    overflow-y: auto;
-  }
-  .nav-drawer.open { transform: translateX(0); }
-
-  .drawer-topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    flex-shrink: 0;
-    border-bottom: 1px solid #E8E8E8;
-    margin: 0 -40px;
-    padding: 0 40px;
-    margin-bottom: 8px;
-  }
-  .drawer-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px; height: 38px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background 0.15s;
-  }
-  .drawer-close:hover { background: #F0EDE6; }
-  .drawer-close svg { width: 22px; height: 22px; }
-
-  .drawer-items { flex: 1; padding-top: 12px; }
-  .drawer-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-    border-bottom: 1px solid #EBEBEB;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 26px;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    transition: opacity 0.2s;
-  }
-  .drawer-item:hover { opacity: 0.45; }
-  .drawer-item svg { width: 18px; height: 18px; flex-shrink: 0; }
-
-  .drawer-social {
-    display: flex;
-    gap: 20px;
-    padding-top: 36px;
-    flex-wrap: wrap;
-  }
-  .drawer-social a {
-    color: var(--text);
-    opacity: 0.5;
-    transition: opacity 0.2s;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .drawer-social a:hover { opacity: 1; }
-
-
-  /* ─── CONTROLS BAR ─── */
-  .controls-bar {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 28px 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* Sort */
-  .sort-wrap { margin-left: auto; }
-  .sort-select {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 10px 36px 10px 16px;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    background: var(--bg-white);
-    color: var(--text);
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230A0A0A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    transition: border-color 0.2s;
-  }
-  .sort-select:focus { border-color: var(--text); }
-
-  /* ─── RESULTS COUNT ─── */
-  .results-bar {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 20px 24px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .results-count {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  #results-num { color: var(--text); font-weight: 700; }
-
-  /* ─── YEAR GROUP (unused — kept for safety) ─── */
-  .year-group { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-  .year-label { display: none; }
-
-  /* ─── ARTICLE LIST (Wired-style) ─── */
-  #archive-content {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .article-list { margin: 0; }
-
-  .article-card {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 20px;
-    padding: 24px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: none;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.18s;
-  }
-  .article-list:last-child .article-card:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-  .article-card:hover { opacity: 0.72; }
-
-  /* Text body — left side */
-  .article-card-body {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* Category eyebrow */
-  .article-tag {
-    display: block !important;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.16em !important;
-    text-transform: uppercase !important;
-    color: var(--muted) !important;
-    border: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    margin-bottom: 7px !important;
-    background: none !important;
-  }
-
-  /* Bold black headline */
-  .article-card h2 {
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: clamp(17px, 2.2vw, 24px) !important;
-    line-height: 1.18 !important;
-    letter-spacing: -0.3px !important;
-    font-weight: 800 !important;
-    color: var(--text) !important;
-    margin: 0 !important;
-  }
-
-  /* Hide excerpt + read-time for clean scannable look */
-  .article-card p { display: none !important; }
-  .article-read-time { display: none !important; }
-
-  /* Hide old date column & arrow */
-  .article-date-col { display: none !important; }
-  .article-arrow { display: none !important; }
-
-  /* Thumbnail — right side */
-  .article-thumb {
-    flex-shrink: 0;
-    width: 130px;
-    height: 88px;
-    overflow: hidden;
-    background: var(--border);
-  }
-  .article-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .article-thumb svg { display: block; }
-
-  /* ─── EMPTY STATE ─── */
-  .empty-state {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 24px;
-    text-align: center;
-    display: none;
-  }
-  .empty-state.visible { display: block; }
-  .empty-state h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -0.5px;
-    margin-bottom: 12px;
-  }
-  .empty-state p { font-size: 15px; color: var(--muted); font-weight: 300; }
-
-  /* ─── LOAD MORE ─── */
-  .load-more-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-    display: flex;
-    justify-content: center;
-  }
-  .load-more-btn {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text);
-    background: none;
-    border: 1.5px solid var(--text);
-    padding: 14px 36px;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-  }
-  .load-more-btn:hover { background: var(--text); color: var(--bg); }
-  .load-more-btn:disabled {
-    opacity: 0.35;
-    cursor: default;
-    background: none;
-    color: var(--text);
-  }
-
-  /* ─── NEWSLETTER ─── */
-  .newsletter {
-    background: white;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .newsletter-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 24px;
-    text-align: center;
-  }
-  .newsletter h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(28px, 4vw, 52px);
-    font-weight: 400;
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-  }
-  .newsletter p {
-    font-size: 16px;
-    color: var(--muted);
-    margin-bottom: 36px;
-    font-weight: 300;
-  }
-  .substack-wrap {
-    display: flex;
-    justify-content: center;
-  }
-  .substack-wrap iframe {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.07);
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 64px 24px 40px;
-  }
-  .footer-inner { max-width: 1200px; margin: 0 auto; }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px 32px;
-    padding-bottom: 64px;
-    border-bottom: 1px solid #222;
-  }
-  .footer-col-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a {
-    color: var(--footer-text);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    transition: opacity 0.2s;
-  }
-  .footer-links a:hover { opacity: 0.4; }
-  .footer-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: white;
-    padding: 8px 0;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-top: 32px;
-  }
-  .footer-logo .logo-asterisk { color: red; font-size: 1.5rem; }
-  .footer-bottom {
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .footer-copy { font-size: 12px; color: #ffffff; }
-
-  /* ─── HIDDEN / FILTERED ─── */
-  .article-card.hidden { display: none; }
-  .year-group.hidden { display: none; }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .article-card { animation: fadeUp 0.4s ease both; }
-
-  /* ─── MOBILE ─── */
-  @media (max-width: 600px) {
-    .archive-header { padding: 48px 20px 40px; }
-    .controls-bar { padding: 20px; gap: 12px; }
-    .sort-wrap { margin-left: 0; }
-    .year-group { padding: 0 20px; }
-    .article-card { gap: 14px; padding: 20px 0; }
-    .article-thumb { width: 90px; height: 66px; }
-    .article-card h2 { font-size: 15px !important; }
-    .load-more-wrap { padding: 36px 20px 60px; }
-    .newsletter-inner { padding: 60px 20px; }
-    footer { padding: 48px 20px 32px; }
-    .nav-cta { display: none; }
-    .nav-drawer { padding: 0 24px 32px; }
-    .drawer-topbar { margin: 0 -24px; padding: 0 24px; }
-    .drawer-item { font-size: 22px; }
-    .results-bar { padding: 16px 20px 0; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Boldonse&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <!-- OVERLAY -->
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
@@ -526,27 +31,13 @@
     </button>
   </div>
   <div class="drawer-items">
-    <a href="index.html" class="drawer-item">
-      Home
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="Archive" class="drawer-item">
-      Archive
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="About" class="drawer-item">
-      About
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="#newsletter" class="drawer-item" onclick="closeDrawer()">
-      Newsletter
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <a href="unstablethoughts.blog" class="drawer-item">Home<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="Archive" class="drawer-item" onclick="closeDrawer()">Archive<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="About" class="drawer-item" onclick="closeDrawer()">About<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="index.html/#newsletter" class="drawer-item" onclick="closeDrawer()">Newsletter<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
   <div class="drawer-social">
-    <a href="https://x.com/unstable_india">X</a>
-    <a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a>
-    <a href="mailto:unstablethoughtsindia@gmail.com">Email</a>
+    <a href="https://x.com/unstable_india">X</a><a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a><a href="mailto:unstablethoughtsindia@gmail.com">Email</a><a href="#">RSS</a>
   </div>
 </div>
 
@@ -557,65 +48,98 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-divider"></div>
-    <a href="index.html" class="nav-logo">
-      UnstableThoughts<span class="logo-asterisk">*</span>
-    </a>
+    <a href="#" class="nav-logo">UnstableThoughts<span style="color:red;font-size:2rem;line-height:1;">*</span></a>
     <div class="nav-right">
-      <a href="#newsletter" class="nav-cta">Subscribe</a>
+      
     </div>
   </div>
 </nav>
 
-
-<!-- CONTROLS -->
-<div class="controls-bar">
-  <div class="sort-wrap">
-    <select class="sort-select" id="sortSelect" aria-label="Sort articles">
-      <option value="newest">Newest First</option>
-      <option value="oldest">Oldest First</option>
-    </select>
+<!-- ARTICLE HERO -->
+<header class="article-hero">
+  <div class="article-breadcrumb">
+    <a href="index">Home</a>
+    <span>/</span>
+    <a href="Archive">Archive</a>
   </div>
-</div>
-
-<!-- RESULTS COUNT -->
-<div class="results-bar">
-  <p class="results-count"><span id="results-num">—</span> Articles</p>
-<br> </br>
-</div>
-
-<!-- ARTICLE CONTENT (rendered by JS) -->
-<div id="archive-content"></div>
-
-<!-- EMPTY STATE -->
-<div class="empty-state" id="emptyState">
-  <h3>No articles found.</h3>
-  <p>Try a different search term or remove the filter.</p>
-</div>
-
-<!-- LOAD MORE -->
-<div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
-  <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">Load more articles</button>
-</div>
-
-<!-- NEWSLETTER -->
-<section class="newsletter" id="newsletter">
-  <div class="newsletter-inner">
-    <h2>Stay in the loop.</h2>
-    <p>One to three articles a week. Thoughtful, clear, and always free.</p>
-    <div class="substack-wrap">
-      <div style="width: 440px; height: 65px; overflow: hidden; position: relative;">
-  <iframe 
-    src="https://unstablethoughts.substack.com/embed"
-    width="440"
-    height="200"
-    style="border: none; position: absolute; top: -60px; left: 0; background: #F0EDE6;"
-    frameborder="8"
-    scrolling="no">
-  </iframe>
-      </div>
+  <span class="article-tag">The Beginning</span>
+  <h1>The Question: Why?</h1>
+  <p class="article-deck">The real reason for starting UnstableThoughts and why silence is no longer an option.</p>
+  <div class="article-meta">
+    <div class="article-meta-author">
+      <div class="author-avatar">UT</div>
+      <div class="author-name">UnstableThoughts</div>
     </div>
+    <div class="article-meta-divider"></div>
+    <span class="article-meta-detail">07-03-2026</span>
+    <div class="article-meta-divider"></div>
+    <span class="article-meta-detail">2 min read</span>
   </div>
-</section>
+</header>
+
+<!-- SHARE BAR — above the cover image -->
+<div class="share-bar">
+  <span class="share-bar-label">Share</span>
+
+<!-- X / Twitter -->
+<a class="share-btn" id="shareX" href="#" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+  X
+</a>
+
+  <!-- common share button -->
+<button onclick="shareArticle()" class="share-btn" title="Share" aria-label="Share this article">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+    <polyline points="16 6 12 2 8 6"/>
+    <line x1="12" y1="2" x2="12" y2="15"/>
+  </svg>
+  Share
+</button>
+
+  <!-- Copy link -->
+  <button class="share-btn" id="copyBtn" onclick="copyLink()" title="Copy link" aria-label="Copy link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+      <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+    </svg>
+    Copy link
+  </button>
+</div>
+
+<!-- COVER IMAGE -->
+<div class="article-cover">
+  <img
+    src="https://lh3.googleusercontent.com/d/1doKElgTD0fkULgtAgjYXCOMVNd9jr3BJ"
+    alt="Article cover image"
+    class="article-cover-img"
+  />
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-layout">
+
+  <article class="article-prose">
+
+    <p>The straightforward answer is this: our mainstream system is not doing the job it is supposed to do. The responsibilities that should have been fulfilled are being neglected. As a result, our people [Indians] are suffering silently.</p>
+    <p>Every day, we see tragic incidents that could have been prevented.</p>
+    <p>For example [some news], people die while walking on footpaths after being hit by reckless drivers. In many cases, wealthy or influential individuals escape without serious consequences, getting easily bailed out without accountability.</p>
+    <p>People lose their lives when bridges collapse due to poor construction and lack of maintenance. Hospitals are burned in violent incidents, and even newborn babies are killed. These are not accidents alone - they are failures of systems.</p>
+    <p>From 2020 to 2024, 9,483 people have reportedly died due to pothole-related accidents. Roads meant for safe travel turn into death traps because of negligence.</p>
+    <p>There are even heartbreaking cases where a two-month-old baby was killed for entering a temple due to caste discrimination. In a country that speaks of unity and progress, such incidents expose deep-rooted social problems that still remain unresolved.</p>
+    <p class="article-pullquote">At this point, we don't need a missile attack from another country to destroy us. Our silence, our inaction, and our tolerance of injustice are enough to weaken us from within.</p>
+    <p>Meanwhile, leaders celebrate not being attacked by external forces, while internal issues continue to claim innocent lives.</p>
+    <p>So the real question is:</p>
+    <ul class="questions">
+      <li>Why don't people protest or raise their voices against these problems?</li>
+      <li>Why do we normalize injustice?</li>
+      <li>Why do we move on so quickly after every tragedy?</li>
+    </ul>
+    <p>This platform exists for a reason. It exists to ask difficult questions, to speak about uncomfortable truths, and to encourage people to think, question, and demand accountability.</p>
+    <p>Change begins when silence ends. And this is where we choose to begin.</p>
+
+  </article>
+
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -624,17 +148,17 @@
       <div>
         <p class="footer-col-label">UnstableThoughts</p>
         <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index">Home</a></li>
           <li><a href="Archive">Archive</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="About">About</a></li>
+          <li><a href="index/#newsletter">Newsletter</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-col-label">Social</p>
         <ul class="footer-links">
           <li><a href="https://x.com/unstable_india">X</a></li>
-          <li><a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a></li>
+          <li><a href="https://www.instagram.com/unstablethoughtsindia?igsh=dGc4YnF3Z2l5djQ3">Instagram</a></li>
           <li><a href="mailto:unstablethoughtsindia@gmail.com">Email</a></li>
         </ul>
       </div>
@@ -642,13 +166,11 @@
         <p class="footer-col-label">Legal</p>
         <ul class="footer-links">
           <li><a href="privacy">Privacy Policy</a></li>
-          <li><a href="terms">Terms of Use</a></li>
+          <li><a href="Terms">Terms of Use</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-logo">
-      UnstableThoughts<span class="logo-asterisk">*</span>
-    </div>
+    <div class="footer-logo">UnstableThoughts<span style="color:red;font-size:2rem;">*</span></div>
     <div class="footer-bottom">
       <span class="footer-copy">UnstableThoughts.blog &copy; 2026</span>
       <span class="footer-copy">Made with curiosity.</span>
@@ -656,146 +178,6 @@
   </div>
 </footer>
 
-<script>
-  /* ─── DATA ─── */
-  const ARTICLES = [
-    {
-      id: 1,
-      title: "The Question: Why?<br> [The real reason for starting UnstableThoughts and why silence is no longer an option.]",
-      excerpt: "The real reason for starting UnstableThoughts and why silence is no longer an option.",
-      category: "The Beginning",
-      date: "07-03-2026",
-      readTime: 2,
-      url: "The-real-reason-for-starting-unstablethoughts_ar=001",
-      image: "https://lh3.googleusercontent.com/d/1doKElgTD0fkULgtAgjYXCOMVNd9jr3BJ"  
-    },
-
-  ];
-
-  const PAGE_SIZE = 10;
-  let visibleArticles = [];
-  let renderedCount = 0;
-
-  /* ─── HELPERS ─── */
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-  function parseDate(str) {
-    const [y, m, d] = str.split('-').map(Number);
-    return new Date(y, m - 1, d);
-  }
-
-  function formatDay(str)   { return str.split('-')[2].replace(/^0/, ''); }
-  function formatMonth(str) { return months[parseInt(str.split('-')[1]) - 1]; }
-  function formatYear(str)  { return str.split('-')[0]; }
-
-  /* ─── SORTING ─── */
-  function getFiltered() {
-    const sort = document.getElementById('sortSelect').value;
-    return ARTICLES.slice().sort((a, b) => {
-      const da = parseDate(a.date), db = parseDate(b.date);
-      return sort === 'oldest' ? da - db : db - da;
-    });
-  }
-
-  /* ─── RENDER ─── */
-  function render() {
-    visibleArticles = getFiltered();
-    renderedCount   = 0;
-    document.getElementById('archive-content').innerHTML = '';
-    renderMore();
-    updateResultsCount();
-  }
-
-  function renderMore() {
-    const content = document.getElementById('archive-content');
-
-    // Ensure a single flat list container exists
-    let list = content.querySelector('.article-list');
-    if (!list) {
-      list = document.createElement('div');
-      list.className = 'article-list';
-      content.appendChild(list);
-    }
-
-    const batch = visibleArticles.slice(renderedCount, renderedCount + PAGE_SIZE);
-    renderedCount += batch.length;
-
-    batch.forEach((a, idx) => {
-      const card = document.createElement('a');
-      card.href = a.url;
-      card.className = 'article-card';
-      card.dataset.id = a.id;
-      card.style.animationDelay = `${idx * 40}ms`;
-
-      // Use article image if provided, else a solid colour swatch
-      const thumbInner = a.image
-        ? `<img src="${a.image}" alt="" loading="lazy">`
-        : `<div style="width:100%;height:100%;background:#C8C4BC;"></div>`;
-
-      card.innerHTML = `
-        <div class="article-card-body">
-          <span class="article-tag">${a.category}</span>
-          <h2>${a.title}</h2>
-        </div>
-        <div class="article-thumb">${thumbInner}</div>
-      `;
-      list.appendChild(card);
-    });
-
-    // Empty state
-    const empty = document.getElementById('emptyState');
-    if (visibleArticles.length === 0) {
-      empty.classList.add('visible');
-    } else {
-      empty.classList.remove('visible');
-    }
-
-    // Load more
-    const lmWrap = document.getElementById('loadMoreWrap');
-    const lmBtn  = document.getElementById('loadMoreBtn');
-    if (visibleArticles.length > renderedCount) {
-      lmWrap.style.display = 'flex';
-      lmBtn.disabled = false;
-      lmBtn.textContent = `Load ${Math.min(PAGE_SIZE, visibleArticles.length - renderedCount)} more articles`;
-    } else if (visibleArticles.length > PAGE_SIZE) {
-      lmWrap.style.display = 'flex';
-      lmBtn.disabled = true;
-      lmBtn.textContent = 'All articles loaded';
-    } else {
-      lmWrap.style.display = 'none';
-    }
-  }
-
-  function loadMore() {
-    renderMore();
-  }
-
-  function updateResultsCount() {
-    document.getElementById('results-num').textContent = visibleArticles.length;
-  }
-
-  /* ─── EVENT LISTENERS ─── */
-  document.getElementById('sortSelect').addEventListener('change', render);
-
-  /* ─── DRAWER ─── */
-  function openDrawer() {
-    document.getElementById('drawer').classList.add('open');
-    document.getElementById('drawerOverlay').classList.add('open');
-    document.getElementById('hamburger').setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => document.getElementById('drawerCloseBtn').focus(), 100);
-  }
-  function closeDrawer() {
-    document.getElementById('drawer').classList.remove('open');
-    document.getElementById('drawerOverlay').classList.remove('open');
-    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    document.getElementById('hamburger').focus();
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-
-  /* ─── INIT ─── */
-  render();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
