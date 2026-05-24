@@ -86,3 +86,16 @@ function openDrawer() {
   }
 }
 
+// for twitter/x
+
+document.getElementById('shareX').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const shareUrl =
+    'https://x.com/intent/tweet?url=' +
+    encodeURIComponent(window.location.href) +
+    '&text=' +
+    encodeURIComponent(document.title);
+
+  window.open(shareUrl, '_blank', 'noopener,noreferrer');
+});
