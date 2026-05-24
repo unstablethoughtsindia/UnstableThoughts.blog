@@ -85,3 +85,10 @@ function openDrawer() {
     navigator.clipboard.writeText(url);
   }
 }
+
+// for twitter/x
+
+ const shareX = document.getElementById('shareX');
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent(document.title);
+  shareX.href = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
