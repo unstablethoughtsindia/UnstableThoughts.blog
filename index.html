@@ -109,31 +109,28 @@
     flex-shrink: 0;
   }
 
-  .nav-logo {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-logo .logo-mark {
-    font-size: 30px;
-    line-height: 1;
-    font-style: italic;
-  }
-  .nav-logo .logo-sub {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    line-height: 1.2;
-    color: var(--muted);
-  }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  color: #000;
+  line-height: 1;
+}
+
+.nav-logo img {
+  margin-top: 5px;
+  height: 130px;
+  width: auto;
+  display: block;
+}
+
+
 
   .nav-right { margin-left: auto; }
   .nav-cta {
@@ -593,7 +590,7 @@
     </button>
     <div class="nav-divider"></div>
     <p  class="nav-logo">
-      UnstableThoughts<p style="color: red;font-size: 2.5rem;">*</p>
+      <img src="https://lh3.googleusercontent.com/d/1P5kTpPx_NHzhWGWkPkbJvDz2wMPsOP6E" alt="logo">
     </p>
     <div class="nav-right">
       <a href="#newsletter" class="nav-cta">Subscribe</a>
