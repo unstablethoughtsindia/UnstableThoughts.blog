@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:url" content="https://unstablethoughts.blog/The-Tale-of-Tianzhu-Jungle_ar=002" />
+  <meta property="og:title" content="The Tale of Tianzhu Jungle + Allegory of the story" />
+<title>UnstableThoughts - The Tale of Tianzhu Jungle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Boldonse&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- OVERLAY -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<!-- DRAWER -->
+<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-topbar">
+    <button class="drawer-close" id="drawerCloseBtn" onclick="closeDrawer()" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <div class="drawer-items">
+    <a href="unstablethoughts.blog" class="drawer-item">Home<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="Archive" class="drawer-item" onclick="closeDrawer()">Archive<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="About" class="drawer-item" onclick="closeDrawer()">About<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="index.html/#newsletter" class="drawer-item" onclick="closeDrawer()">Newsletter<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="drawer-social">
+    <a href="https://x.com/unstable_india">X</a><a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a><a href="mailto:unstablethoughtsindia@gmail.com">Email</a><a href="#">RSS</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-hamburger" id="hamburger" onclick="openDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-divider"></div>
+    <a href="#" class="nav-logo">UnstableThoughts<span style="color:red;font-size:2.5rem;line-height:1;">*</span></a>
+    <div class="nav-right">
+      
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<header class="article-hero">
+  <div class="article-breadcrumb">
+    <a href="index">Home</a>
+    <span>/</span>
+    <a href="Archive">Archive</a>
+  </div>
+  <span class="article-tag">Story + Allegory</span>
+  <h1>The Tale of Tianzhu Jungle</h1>
+  <p class="article-deck">A story inspired by Animal Farm. And the allegory of the story.</p>
+  <div class="article-meta">
+    <div class="article-meta-author">
+      <div class="author-avatar">UT</div>
+      <div class="author-name">UnstableThoughts</div>
+    </div>
+    <div class="article-meta-divider"></div>
+    <span class="article-meta-detail">26-05-2026</span>
+    <div class="article-meta-divider"></div>
+    <span class="article-meta-detail">2 min read</span>
+  </div>
+</header>
+
+<!-- SHARE BAR — above the cover image -->
+<div class="share-bar">
+  <span class="share-bar-label">Share</span>
+
+
+  <!-- common share button -->
+<button onclick="shareArticle()" class="share-btn" title="Share" aria-label="Share this article">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+    <polyline points="16 6 12 2 8 6"/>
+    <line x1="12" y1="2" x2="12" y2="15"/>
+  </svg>
+  Share
+</button>
+
+  <!-- Copy link -->
+  <button class="share-btn" id="copyBtn" onclick="copyLink()" title="Copy link" aria-label="Copy link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+      <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+    </svg>
+    Copy link
+  </button>
+</div>
+
+<!-- COVER IMAGE -->
+<div class="article-cover">
+  <img
+    src="https://lh3.googleusercontent.com/d/1JEXYI7RmBfm652iFq8iy6VwBf0qGbVM6"
+    alt="Article cover image"
+    class="article-cover-img"
+  />
+  <p style="font-size: smaller; color: rgb(96, 96, 96);">[Image: AI]</p>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-layout">
+
+  <article class="article-prose">
+    <p>Index- story | <a class="links-p" href="#Allegory">Allegory</a></p>
+
+<p id="story">Inspired by <a class="links-p" href="https://en.wikipedia.org/wiki/Animal_Farm" target="_blank">Animal Farm</a> by <a class="links-p" href="https://en.wikipedia.org/wiki/George_Orwell" target="_blank">George Orwell</a>.</p>
+<p>In a jungle called Tianzhu, many animals lived in grinding poverty, struggling to find food, shelter, and dignity.<br>One day, a group of pigs arrived with a powerful message. They didn't talk much about poverty or unemployment. Instead, they spoke of something else entirely: 'fear'.</p>
+<p>"The foxes are taking over your part of the jungle!" they warned the deer.<br>"The monkeys are getting special privileges!" they told the rabbits.<br>"Your traditions, your way of life, your identity-all under threat!" they proclaimed to everyone.</p>
+<p>They divided the animals by species, by the parts of the jungle they lived in, by what they ate and how they prayed. They made neighbors suspicious of neighbors. They turned old friends into enemies. And in all this chaos and fear, the animals forgot to ask about their empty stomachs and their suffering children.</p>
+<p>The pigs promised to protect each group's "communal rights"-but only if they became rulers.<br>Desperate and afraid, the animals made them their rulers.</p>
+<p>Before the pigs took power, the news reader parrot and crow used to ask important questions: "Why are animals starving?" "Where are the jobs?" "Why are our hospitals failing?" <br>After the pigs came to power, these journalists only asked trivial questions: "What does the pig leader eat for breakfast?" "What does he do in his free time?" "Isn't his latest speech inspiring?"-questions that meant nothing while animals continued to suffer.</p>
+<p>Shantanu, a cunning monkey and close friend of the pig rulers, saw his opportunity. He expanded his small banana-selling business into a vast empire—controlling food distribution, housing, infrastructure, everything. <br>Then Shantanu bought off the news parrot and crow, along with many other animals in influential positions. Now these journalists would say whatever Shantanu and the pigs told them to say:</p>
+<ul class="questions">
+  <li>A plane crashes, killing dozens? "The pilot pigeon's fault—poor training!", Also the pig[Ruler] posed for a lovely photo of the plane crash.</li>
+  <li>A mine collapses, burying workers alive? "The mine workers' fault—they were careless!"</li>
+  <li>Exam papers leaked again and again, destroying young animals' futures? "NO one taking accountability"</li>
+  <li>Whenever something went wrong in the country, the pigs and their news channels blamed the past rulers.</li>
+</ul>
+<p>Never was it the rulers' responsibility. Never was there any accountability. Never did they mention that safety regulations were ignored, that inspections were skipped, that the pigs' friends cut corners for profit.</p>
+<p>Meanwhile, the news parrot and crow broadcast grand announcements: "Jangala is now the fastest-growing jungle in the world!" "Our economy is booming!" "New trees planted, new paths built, development everywhere!" They showed images of Shantanu's gleaming new warehouses, the pigs' luxurious gathering halls, the sparkling fountain in the administrative clearing. But they never showed the animals still starving in the outer parts of the jungle, the crumbling hospitals, the schools with no teachers. And whenever animals grew restless, whenever they began to question why 'they' saw no improvement in their lives, the pigs had a ready solution: 'create a new fear'.</p>  
+<ul class="questions" >
+  <li>"The wolves are planning something!"</li>
+  <li>"The deer are being too demanding!"</li>
+  <li>"We must protect the jungle from 'them'!"</li>
+</ul>
+<p>And the animals, divided and afraid, would forget their anger at the rulers and turn it toward each other instead.</p>
+<p>Seeing this cycle repeat endlessly, the other animals began to lose all hope in the system. Fear became their constant companion—fear of the "other" animals, fear of speaking up, fear of the rulers themselves.<br>Meanwhile, animals continued to die—in the fields from starvation, on the roads from neglected infrastructure, in workplaces from lack of safety, in hospitals from absence of medicine-everywhere, the common animals suffered and perished.</p>
+<p>Yet the fat pigs kept feeding. The entire wealth of the jungle—the fruit of every animal's labor—flowed into the pigs' association treasure and into Shantanu's coffers. The pigs grew fatter. Shantanu's empire expanded. The news showed charts and numbers going up, up, up.</p>
+<p>And still, the news parrot and crow asked: "What inspiring words will the pig leader share today?<br> And still, the animals fought among themselves over which species was the "real" threat.<br> And still, behind the grand announcements of development and progress, the jungle called Tianzhu bled.</p>
+  
+<h3 id="Allegory">Allegory</h3>
+<p></p>
+<h4>1.Fear Is Used as a Political Weapon.</h4>
+<p>Political parties in India often use fear as a weapon. They divide people to win votes. During election campaigns, they spread messages that create worry and anger among common people. Even when there is a big problem in the country like price rise, unemployment, or farmer protests, they try to shift attention by creating fear.</p>
+<p>For example, they say things like “Your religion is under threat” or “Your culture will be finished.” This is common during elections in states like Uttar Pradesh, Bihar, Maharashtra, and West Bengal. They use religious processions, speeches, and social media to make people feel scared. As a result, people start fighting with each other instead of asking questions about roads, jobs, water, and electricity.</p>
+<p><strong>Fear keeps people divided. And divided people don't unite against those in power.</strong></p>
+<p><strong>Division Prevents Collective Resistance.</strong></p>
+<p>When people are divided on the basis of religion or caste, they cannot come together. Poor Hindus and poor Muslims stop fighting for better wages and start fighting with each other. This helps the leaders stay in power without solving real problems.</p>
+<h4>2.Media is a Tool of Power.</h4>
+<p>Media can be used as a brainwashing tool. Many TV channels and newspapers support one party or leader. They show only one side of the story and hide the other side. Parties use friendly media houses to run their propaganda and make people believe whatever they want.</p>
+<p>During big events like the Citizenship Amendment Act protests, farm laws agitation, or COVID-19 situation, some channels spent more time praising the government than showing the problems of common people. They turn small issues into big issues and big failures into small matters. This way, they help the ruling party stay strong.</p>
+<p class="article-pullquote">“Propaganda is to a democracy what violence is to a dictatorship.” — William Blum</p>
+<h4>3.Corporate Power and Political Power Merge.</h4>
+<p>Big companies donate huge amounts of money to political parties. In return, they get government contracts, favorable policies, and help in business. This is very common in India.<br>For example, big business houses get coal mines, airport projects, road projects, and special permissions easily. During elections, we saw huge donations through electoral bonds. After winning, governments sometimes change land rules, tax policies, or environmental laws to help these companies.</p>
+<p>Common people often feel that the government works more for big corporates than for farmers, small shopkeepers, and daily wage workers. When companies and politicians come together like this, ordinary citizens lose their voice in the system.</p>
+<p style="color: brown;">We will discuss accountability in greater detail in the next article.</p>
+  </article>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-col-label">UnstableThoughts</p>
+        <ul class="footer-links">
+          <li><a href="index">Home</a></li>
+          <li><a href="Archive">Archive</a></li>
+          <li><a href="About">About</a></li>
+          <li><a href="index/#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Social</p>
+        <ul class="footer-links">
+          <li><a href="https://x.com/unstable_india">X</a></li>
+          <li><a href="https://www.instagram.com/unstablethoughtsindia?igsh=dGc4YnF3Z2l5djQ3">Instagram</a></li>
+          <li><a href="mailto:unstablethoughtsindia@gmail.com">Email</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Legal</p>
+        <ul class="footer-links">
+          <li><a href="privacy">Privacy Policy</a></li>
+          <li><a href="Terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-logo">UnstableThoughts<span style="color:red;font-size:2rem;">*</span></div>
+    <div class="footer-bottom">
+      <span class="footer-copy">UnstableThoughts.blog &copy; 2026</span>
+      <span class="footer-copy">Made with curiosity.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
