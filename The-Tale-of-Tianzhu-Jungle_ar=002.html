@@ -18,7 +18,43 @@
 
 <div class="progress-bar" id="progressBar"></div>
 
- <div id="nav-placeholder"></div>
+<!-- OVERLAY -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<!-- DRAWER -->
+<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-topbar">
+    <button class="drawer-close" id="drawerCloseBtn" onclick="closeDrawer()" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <div class="drawer-items">
+    <a href="https://unstablethoughts.blog" class="drawer-item">Home<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="Archive" class="drawer-item" onclick="closeDrawer()">Archive<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="About" class="drawer-item" onclick="closeDrawer()">About<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://unstablethoughts.blog/#Q&A" class="drawer-item" onclick="closeDrawer()">Q&A<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://unstablethoughts.blog/#newsletter" class="drawer-item" onclick="closeDrawer()">Newsletter<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="drawer-social">
+    <a href="https://x.com/unstable_india">X</a><a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a><a href="mailto:unstablethoughtsindia@gmail.com">Email</a><a href="#">RSS</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-hamburger" id="hamburger" onclick="openDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-divider"></div>
+    <div class="nav-logo"><img src="https://lh3.googleusercontent.com/d/1P5kTpPx_NHzhWGWkPkbJvDz2wMPsOP6E" alt="logo"></div>
+    <div class="nav-right">
+      
+    </div>
+  </div>
+</nav>
 
 <!-- ARTICLE HERO -->
 <header class="article-hero">
@@ -81,7 +117,6 @@
 <div class="article-layout">
 
   <article class="article-prose">
-    <p>Index- story | <a class="links-p" href="#Allegory">Allegory</a></p>
 
 <p id="story">Inspired by <a class="links-p" href="https://en.wikipedia.org/wiki/Animal_Farm" target="_blank">Animal Farm</a> by <a class="links-p" href="https://en.wikipedia.org/wiki/George_Orwell" target="_blank">George Orwell</a>.</p>
 <p>In a jungle called Tianzhu, many animals lived in grinding poverty, struggling to find food, shelter, and dignity.<br>One day, a group of pigs arrived with a powerful message. They didn't talk much about poverty or unemployment. Instead, they spoke of something else entirely: 'fear'.</p>
@@ -151,6 +186,5 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="include.js"></script>
 </body>
 </html>
