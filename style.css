@@ -22,7 +22,7 @@
 
   /* ─── NAV ─── */
   nav {
-    position: fixed;
+    position: sticky;
     top: 0;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
