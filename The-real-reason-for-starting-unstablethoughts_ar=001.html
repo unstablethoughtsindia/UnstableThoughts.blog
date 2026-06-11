@@ -18,43 +18,7 @@
 
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- OVERLAY -->
-<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
-
-<!-- DRAWER -->
-<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <div class="drawer-topbar">
-    <button class="drawer-close" id="drawerCloseBtn" onclick="closeDrawer()" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 6L6 18M6 6l12 12"/>
-      </svg>
-    </button>
-  </div>
-  <div class="drawer-items">
-    <a href="https://unstablethoughts.blog" class="drawer-item">Home<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="Archive" class="drawer-item" onclick="closeDrawer()">Archive<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="About" class="drawer-item" onclick="closeDrawer()">About<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="https://unstablethoughts.blog/#Q&A" class="drawer-item" onclick="closeDrawer()">Q&A<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="https://unstablethoughts.blog/#newsletter" class="drawer-item" onclick="closeDrawer()">Newsletter<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-  </div>
-  <div class="drawer-social">
-    <a href="https://x.com/unstable_india">X</a><a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a><a href="mailto:unstablethoughtsindia@gmail.com">Email</a><a href="#">RSS</a>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <button class="nav-hamburger" id="hamburger" onclick="openDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-divider"></div>
-   <div class="nav-logo"><img src="https://lh3.googleusercontent.com/d/1P5kTpPx_NHzhWGWkPkbJvDz2wMPsOP6E" alt="logo"></div>
-    <div class="nav-right">
-      
-    </div>
-  </div>
-</nav>
+<div id="nav-placeholder"></div>
 
 <!-- ARTICLE HERO -->
 <header class="article-hero">
@@ -136,45 +100,19 @@
 
   </article>
 
+
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-col-label">UnstableThoughts</p>
-        <ul class="footer-links">
-          <li><a href="index">Home</a></li>
-          <li><a href="Archive">Archive</a></li>
-          <li><a href="About">About</a></li>
-          <li><a href="index/#newsletter">Newsletter</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-label">Social</p>
-        <ul class="footer-links">
-          <li><a href="https://x.com/unstable_india">X</a></li>
-          <li><a href="https://www.instagram.com/unstablethoughtsindia?igsh=dGc4YnF3Z2l5djQ3">Instagram</a></li>
-          <li><a href="mailto:unstablethoughtsindia@gmail.com">Email</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-label">Legal</p>
-        <ul class="footer-links">
-          <li><a href="privacy">Privacy Policy</a></li>
-          <li><a href="Terms">Terms of Use</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-logo">UnstableThoughts<span style="color:red;font-size:2rem;">*</span></div>
-    <div class="footer-bottom">
-      <span class="footer-copy">UnstableThoughts.blog &copy; 2026</span>
-      <span class="footer-copy">Made with curiosity.</span>
-    </div>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
 <script src="script.js"></script>
+<script>
+  fetch('/Footer.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('footer-placeholder').innerHTML = html;
+  })
+</script>
+<script src="loadNav.js"></script>
 </body>
 </html>
