@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+</head>
+<style>
+    /* ─── FOOTER ─── */
+  footer {
+    background: black;
+    color: var(--footer-text);
+    padding: 64px 24px 40px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 32px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid #222;
+  }
+  .footer-col-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    color: rgb(198, 198, 198);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover { opacity: 0.4; }
+
+ .footer-logo img{
+
+    height: 130px;
+    width: auto;
+    display: block;
+ }
+
+  .footer-bottom {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-copy { font-size: 12px; color: #ffffff; }
+    /* ─── MOBILE ─── */
+  @media (max-width: 600px) {
+    footer { padding: 48px 20px 32px; }
+  }
+</style>
+<body>
+    <!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-col-label">UnstableThoughts</p>
+        <ul class="footer-links">
+          <li><a href="index">Home</a></li>
+          <li><a href="Archive">Archive</a></li>
+          <li><a href="About">About</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-label">Social</p>
+        <ul class="footer-links">
+          <li><a href="https://x.com/unstable_india">X</a></li>
+          <li><a href="https://www.instagram.com/unstablethoughtsindia?igsh=dGc4YnF3Z2l5djQ3">Instagram</a></li>
+          <li><a href="mailto:unstablethoughtsindia@gmail.com">Email</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Legal</p>
+        <ul class="footer-links">
+          <li><a href="privacy">Privacy Policy</a></li>
+          <li><a href="Terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-logo">
+        <img src="https://lh3.googleusercontent.com/d/1_KgMu4a3sAXgNTL0gz8RTYh-F1ER18BF" alt="logo">
+    </div>
+
+
+    <div class="footer-bottom">
+      <span class="footer-copy">UnstableThoughts.blog &copy; 2026</span>
+      <span class="footer-copy">Made with curiosity.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
