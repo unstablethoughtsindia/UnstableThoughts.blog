@@ -39,238 +39,6 @@
     overflow-x: hidden;
   }
 
-  /* ─── NAV ─── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    height: 64px;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* Hamburger — animated to X on open */
-  .nav-hamburger {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 38px;
-    height: 38px;
-    background: none;
-    border: none;
-    padding: 8px 6px;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--text);
-    transform-origin: center;
-    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1),
-                opacity  0.2s ease;
-  }
-  /* Animate to × when drawer is open */
-  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-  .nav-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--border);
-    margin: 0 20px;
-    flex-shrink: 0;
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 900;
-    letter-spacing: -1.5px;
-    color: #000;
-    line-height: 1;
-  }
-  .nav-logo img {
-    margin-top: 6px;
-    height: 130px;
-    width: auto;
-    display: block;
-  }
-
-  .nav-right { margin-left: auto; }
-  .nav-cta {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text);
-    text-decoration: none;
-    border: 1px solid var(--text);
-    padding: 8px 18px;
-    border-radius: 100px;
-    transition: background 0.2s, color 0.2s;
-    white-space: nowrap;
-  }
-  .nav-cta:hover { background: var(--text); color: var(--bg); }
-
-  /* ─── DRAWER OVERLAY ─── */
-  .drawer-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 10, 10, 0.4);
-    z-index: 200;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-  }
-  .drawer-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  /* ─── DRAWER PANEL ─── */
-  .nav-drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: min(400px, 100vw);
-    background: var(--bg);           /* matches the page parchment */
-    border-right: 1px solid var(--border);
-    z-index: 201;
-    display: flex;
-    flex-direction: column;
-    padding: 0 40px 40px;
-    transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
-    overflow-y: auto;
-  }
-  .nav-drawer.open { transform: translateX(0); }
-
-  /* Staggered item entrance */
-  .nav-drawer.open .drawer-item {
-    animation: itemSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  .nav-drawer.open .drawer-item:nth-child(1) { animation-delay: 0.12s; }
-  .nav-drawer.open .drawer-item:nth-child(2) { animation-delay: 0.18s; }
-  .nav-drawer.open .drawer-item:nth-child(3) { animation-delay: 0.24s; }
-  .nav-drawer.open .drawer-item:nth-child(4) { animation-delay: 0.30s; }
-  .nav-drawer.open .drawer-social          { animation: itemSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both; }
-
-  @keyframes itemSlideIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ─── DRAWER TOPBAR ─── */
-  .drawer-topbar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 64px;
-    flex-shrink: 0;
-    border-bottom: 1px solid var(--border);
-    margin: 0 -40px;
-    padding: 0 40px;
-    margin-bottom: 8px;
-  }
-
-  /* Close button */
-  .drawer-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: none;
-    border: 1px solid var(--border);
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background 0.18s, border-color 0.18s;
-    flex-shrink: 0;
-  }
-  .drawer-close:hover {
-    background: var(--text);
-    border-color: var(--text);
-  }
-  .drawer-close:hover svg { stroke: var(--bg); }
-  .drawer-close svg {
-    width: 14px;
-    height: 14px;
-    stroke: var(--text);
-    transition: stroke 0.18s;
-  }
-
-  /* ─── DRAWER NAV ITEMS ─── */
-  .drawer-items { flex: 1; padding-top: 12px; }
-
-  .drawer-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--text);
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: -0.5px;
-    transition: color 0.2s;
-  }
-  .drawer-item:hover { color: var(--muted); }
-  .drawer-item:hover svg { opacity: 0.4; }
-  .drawer-item svg {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .drawer-item:hover svg { transform: translate(2px, -2px); }
-
-  /* ─── DRAWER SOCIAL ─── */
-  .drawer-social {
-    display: flex;
-    gap: 20px;
-    padding-top: 36px;
-    flex-wrap: wrap;
-    opacity: 0; /* will be animated in by stagger */
-  }
-  .nav-drawer.open .drawer-social { opacity: 1; } /* animation handles this */
-  .drawer-social a {
-    color: var(--text);
-    opacity: 0.4;
-    transition: opacity 0.2s;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  .drawer-social a:hover { opacity: 1; }
-
   /* ─── ARCHIVE SECTION WRAPPER (dark) ─── */
   .archive-section {
     background: #0f0f0f;
@@ -543,60 +311,6 @@
     box-shadow: 0 2px 20px rgba(0,0,0,0.07);
   }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 64px 24px 40px;
-  }
-  .footer-inner { max-width: 1200px; margin: 0 auto; }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px 32px;
-    padding-bottom: 64px;
-    border-bottom: 1px solid #222;
-  }
-  .footer-col-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a {
-    color: var(--footer-text);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    transition: opacity 0.2s;
-  }
-  .footer-links a:hover { opacity: 0.4; }
-  .footer-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: white;
-    padding: 8px 0;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-top: 32px;
-  }
-  .footer-logo .logo-asterisk { color: red; font-size: 1.5rem; }
-  .footer-bottom {
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .footer-copy { font-size: 12px; color: #ffffff; }
-
   /* ─── HIDDEN / FILTERED ─── */
   .article-card.hidden { display: none !important; }
   .year-group.hidden { display: none; }
@@ -620,67 +334,13 @@
     .article-excerpt { font-size: 13px !important; }
     .load-more-wrap { padding: 36px 20px 60px; }
     .newsletter-inner { padding: 60px 20px; }
-    footer { padding: 48px 20px 32px; }
-    .nav-cta { display: none; }
-    .nav-drawer { padding: 0 24px 32px; }
-    .drawer-topbar { margin: 0 -24px; padding: 0 24px; }
-    .drawer-item { font-size: 22px; }
     .results-bar { display: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- OVERLAY -->
-<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
-
-<!-- DRAWER -->
-<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <div class="drawer-topbar">
-    <button class="drawer-close" id="drawerCloseBtn" onclick="closeDrawer()" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 6L6 18M6 6l12 12"/>
-      </svg>
-    </button>
-  </div>
-  <div class="drawer-items">
-    <a href="index.html" class="drawer-item">
-      Home
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="Archive" class="drawer-item">
-      Archive
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="About" class="drawer-item">
-      About
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="#newsletter" class="drawer-item" onclick="closeDrawer()">
-      Newsletter
-      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-  <div class="drawer-social">
-    <a href="https://x.com/unstable_india">X</a>
-    <a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a>
-    <a href="mailto:unstablethoughtsindia@gmail.com">Email</a>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <button class="nav-hamburger" id="hamburger" onclick="openDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-divider"></div>
-    <div class="nav-logo"><img src="https://lh3.googleusercontent.com/d/1P5kTpPx_NHzhWGWkPkbJvDz2wMPsOP6E" alt="logo"></div>
-    <div class="nav-right">
-      <a href="#newsletter" class="nav-cta">Subscribe</a>
-    </div>
-  </div>
-</nav>
+<div id="nav-placeholder"></div>
 
 
 <div class="archive-section">
@@ -737,44 +397,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-col-label">UnstableThoughts</p>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="Archive">Archive</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-label">Social</p>
-        <ul class="footer-links">
-          <li><a href="https://x.com/unstable_india">X</a></li>
-          <li><a href="https://www.instagram.com/unstablethoughtsindia">Instagram</a></li>
-          <li><a href="mailto:unstablethoughtsindia@gmail.com">Email</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-label">Legal</p>
-        <ul class="footer-links">
-          <li><a href="privacy">Privacy Policy</a></li>
-          <li><a href="terms">Terms of Use</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-logo">
-      UnstableThoughts<span class="logo-asterisk">*</span>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">UnstableThoughts.blog &copy; 2026</span>
-      <span class="footer-copy">Made with curiosity.</span>
-    </div>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
 <script>
   /* ─── DATA ─── */
@@ -933,25 +556,17 @@
   /* ─── EVENT LISTENERS ─── */
   document.getElementById('sortSelect').addEventListener('change', render);
 
-  /* ─── DRAWER ─── */
-  function openDrawer() {
-    document.getElementById('drawer').classList.add('open');
-    document.getElementById('drawerOverlay').classList.add('open');
-    document.getElementById('hamburger').setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => document.getElementById('drawerCloseBtn').focus(), 100);
-  }
-  function closeDrawer() {
-    document.getElementById('drawer').classList.remove('open');
-    document.getElementById('drawerOverlay').classList.remove('open');
-    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    document.getElementById('hamburger').focus();
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-
   /* ─── INIT ─── */
   render();
 </script>
+
+<script>
+  fetch('/Footer.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('footer-placeholder').innerHTML = html;
+  })
+</script>
+<script src="loadNav.js"></script>
 </body>
 </html>
