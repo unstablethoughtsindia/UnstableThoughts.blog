@@ -275,57 +275,7 @@
     box-shadow: 0 2px 20px rgba(0,0,0,0.07);
   }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 64px 24px 40px;
-  }
-  .footer-inner { max-width: 1200px; margin: 0 auto; }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px 32px;
-    padding-bottom: 64px;
-    border-bottom: 1px solid #222;
-  }
-  .footer-col-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a {
-    color: var(--footer-text);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    transition: opacity 0.2s;
-  }
-  .footer-links a:hover { opacity: 0.4; }
-
- .footer-logo{
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: white;
-    padding: 8px;
- }
-
-  .footer-bottom {
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .footer-copy { font-size: 12px; color: #ffffff; }
+  
 
   /* ─── MOBILE ─── */
   @media (max-width: 600px) {
@@ -357,6 +307,7 @@
   <p class="hero-eyebrow">Indian politics &middot; social issues &middot; Political philosophy</p>
   <h1 class="boldonse-regular">Words<br>can change<br>world.</h1>
   <p class="hero-sub">The goal is simple: to create a meaningful impact through honest and thoughtful writing.</p>
+  <p class="hero-sub"><a href="About" style="text-decoration: underline; color: #0A0A0A;">Read more About UnstableThoughts</a></p>
 </section>
 
 <hr class="hero-divider" />
@@ -473,48 +424,15 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-col-label">UnstableThoughts</p>
-        <ul class="footer-links">
-          <li><a href="index">Home</a></li>
-          <li><a href="Archive">Archive</a></li>
-          <li><a href="About">About</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
-        </ul>
-      </div>
+<div id="footer-placeholder"></div>
 
-      <div>
-        <p class="footer-col-label">Social</p>
-        <ul class="footer-links">
-          <li><a href="https://x.com/unstable_india">X</a></li>
-          <li><a href="https://www.instagram.com/unstablethoughtsindia?igsh=dGc4YnF3Z2l5djQ3">Instagram</a></li>
-          <li><a href="mailto:unstablethoughtsindia@gmail.com">Email</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-label">Legal</p>
-        <ul class="footer-links">
-          <li><a href="privacy">Privacy Policy</a></li>
-          <li><a href="Terms">Terms of Use</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-logo">
-        <p>UnstableThoughts<span style="color: red;font-size: 2rem;">*</span></p>
-    </div>
-
-
-    <div class="footer-bottom">
-      <span class="footer-copy">UnstableThoughts.blog &copy; 2026</span>
-      <span class="footer-copy">Made with curiosity.</span>
-    </div>
-  </div>
-</footer>
-  <script src="Nav_bar.js"></script>
+<script>
+  fetch('/Footer.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('footer-placeholder').innerHTML = html;
+  })
+</script>
 <script src="loadNav.js"></script>
 </body>
 </html>
