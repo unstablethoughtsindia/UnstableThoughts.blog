@@ -256,7 +256,7 @@
     position: fixed;
     top: 64px; left: 0;
     height: 2px;
-    background: var(--text);
+    background: red;
     width: 0%; z-index: 99;
     transition: width 0.1s linear;
   }
